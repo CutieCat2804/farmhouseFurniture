@@ -1,13 +1,16 @@
 {
   "variants": {
-    "plates=1": {
+    "plates=1,cups=0": {
       "model": "farmhousefurniture:block/plate_one_plate"
     },
-    "plates=2": {
+    "plates=2,cups=0": {
       "model": "farmhousefurniture:block/plate_two_plates"
     },
-    "plates=3": {
+    "plates=3,cups=0": {
       "model": "farmhousefurniture:block/plate_three_plates"
+    },
+    "plates=1,cups=1": {
+      "model": "farmhousefurniture:block/plate_with_cup"
     }
   }
 }

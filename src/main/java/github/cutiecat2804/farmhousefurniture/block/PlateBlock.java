@@ -1,15 +1,21 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
+import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
@@ -22,10 +28,11 @@ public class PlateBlock extends Block {
     private static final VoxelShape SHAPE_THREE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 3.0D, 12.0D);
 
     public static final IntegerProperty PLATES = IntegerProperty.create("plates", 1, 3);
+    public static final IntegerProperty CUPS = IntegerProperty.create("cups", 0, 1);
 
     public PlateBlock(BlockBehaviour.Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(PLATES, 1));
+        this.registerDefaultState(this.stateDefinition.any().setValue(PLATES, 1).setValue(CUPS, 0));
     }
 
     public boolean canSurvive(@NotNull BlockState blockState, @NotNull LevelReader levelReader, BlockPos blockPos) {
@@ -48,6 +55,21 @@ public class PlateBlock extends Block {
         }
     }
 
+    // Damit beim Klicken mit einer Tasse auf den Teller sich der Block ändert
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+        if (player.getItemInHand(interactionHand).getItem() == ItemInit.CUP.get()) {
+            // updated block state und setzt ihn neu. Wichtig, weil ihr ein anderer Block angezeigt werden soll
+            level.setBlockAndUpdate(
+                    blockPos,
+                    this.defaultBlockState().setValue(PLATES, 1)
+                    .setValue(CUPS, 1)
+            );
+
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+        return InteractionResult.PASS;
+    }
+
     public @NotNull VoxelShape getShape(BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
         return switch (blockState.getValue(PLATES)) {
             default -> SHAPE_ONE;
@@ -57,6 +79,6 @@ public class PlateBlock extends Block {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
-        blockBlockStateBuilder.add(PLATES);
+        blockBlockStateBuilder.add(PLATES, CUPS);
     }
 }

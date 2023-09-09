@@ -48,7 +48,6 @@ public class CupBlock extends Block {
 
     // Wird aufgerufen, wenn ein neuer Block zu dem existierenden hinzugefügt wird
     public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
-
         BlockState blockstate = blockPlaceContext.getLevel().getBlockState(blockPlaceContext.getClickedPos());
         // Checkt, ob der BlockState schon der Type dieser Klasse ist (also schon eine Tasse dort steht)
         // fügt dann eine weitere hinzu
