@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "farmhousefurniture:block/example_block"
+    }
+  }
+}
