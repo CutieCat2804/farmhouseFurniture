@@ -2,6 +2,7 @@ package github.cutiecat2804.farmhousefurniture.init;
 
 import github.cutiecat2804.farmhousefurniture.block.CupBlock;
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
+import github.cutiecat2804.farmhousefurniture.block.PlateBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -27,7 +28,16 @@ public class BlockInit {
     public static final RegistryObject<Block> CUP = BLOCKS.register("cup",
             () -> new CupBlock(BlockBehaviour.Properties.of()
                     .isViewBlocking((blockState, blockGetter, blockPos) -> false)
-                    .noOcclusion().instabreak()
+                    .noOcclusion()
+                    .instabreak()
+                    .pushReaction(PushReaction.DESTROY)
+            ));
+
+    public static final RegistryObject<Block> PLATE = BLOCKS.register("plate",
+            () -> new PlateBlock(BlockBehaviour.Properties.of()
+                    .isViewBlocking((blockState, blockGetter, blockPos) -> false)
+                    .noOcclusion()
+                    .instabreak()
                     .pushReaction(PushReaction.DESTROY)
             ));
 }

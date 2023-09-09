@@ -62,7 +62,7 @@ public class CupBlock extends Block {
     }
 
     //  Setzt den Shape je nach Anzahl der Cups
-    public VoxelShape getShape(BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
+    public @NotNull VoxelShape getShape(BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
         return switch (blockState.getValue(CUPS)) {
             default -> SHAPE_ONE;
             case 2 -> SHAPE_TWO;
@@ -71,8 +71,8 @@ public class CupBlock extends Block {
     }
 
     // Setzt den BlockState
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_152840_) {
-        p_152840_.add(CUPS, FACING);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
+        blockBlockStateBuilder.add(CUPS, FACING);
     }
 
 }

@@ -30,4 +30,7 @@ public class ItemInit {
 
     public static final RegistryObject<BlockItem> CUP = addToTab(ITEMS.register("cup",
             () -> new BlockItem(BlockInit.CUP.get(), new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> PLATE = addToTab(ITEMS.register("plate",
+            () -> new BlockItem(BlockInit.PLATE.get(), new Item.Properties())));
 }

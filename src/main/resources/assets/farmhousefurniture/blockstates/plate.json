@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "plates=1": {
+      "model": "farmhousefurniture:block/plate_one_plate"
+    },
+    "plates=2": {
+      "model": "farmhousefurniture:block/plate_two_plates"
+    },
+    "plates=3": {
+      "model": "farmhousefurniture:block/plate_three_plates"
+    }
+  }
+}
