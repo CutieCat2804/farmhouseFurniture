@@ -1,0 +1,78 @@
+package github.cutiecat2804.farmhousefurniture.block;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
+
+public class CupBlock extends Block {
+    // Definiert in welche Richtung Block gesetzt werden kann
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+
+    // (position front (z), position bottom (y), position left (x), position back (z), position top (y), position right (X))
+    private static final VoxelShape SHAPE_ONE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 3.0D, 10.0D);
+    private static final VoxelShape SHAPE_TWO = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 6.0D, 10.0D);
+    private static final VoxelShape SHAPE_THREE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D);
+
+    // Setzt Range wie viele Cups auf einem Block sein dürfen
+    public static final IntegerProperty CUPS = IntegerProperty.create("cups", 1, 3);
+
+    public CupBlock(BlockBehaviour.Properties properties) {
+        super(properties);
+        // Setzt den default BlockState
+        this.registerDefaultState(this.stateDefinition.any().setValue(CUPS, 1).setValue(FACING, Direction.NORTH));
+    }
+
+    // Kann nicht in die Luft gesetzt werden, wird von Wasser zerstört
+    public boolean canSurvive(@NotNull BlockState blockState, @NotNull LevelReader levelReader, BlockPos blockPos) {
+        return Block.canSupportCenter(levelReader, blockPos.below(), Direction.UP);
+    }
+
+    // Wird aufgerufen, wenn ein neuer Block zu dem existierenden hinzugefügt wird.
+    // Checkt, ob es der richtige Klick und Block ist und ob die Anzahl kleiner 3 ist
+    // bestimmt darüber, ob der Block noch ersetzt werden kann
+    public boolean canBeReplaced(@NotNull BlockState blockState, BlockPlaceContext blockPlaceContext) {
+        return !blockPlaceContext.isSecondaryUseActive() && blockPlaceContext.getItemInHand().getItem() == this.asItem() && blockState.getValue(CUPS) < 3 || super.canBeReplaced(blockState, blockPlaceContext);
+    }
+
+    // Wird aufgerufen, wenn ein neuer Block zu dem existierenden hinzugefügt wird
+    public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
+
+        BlockState blockstate = blockPlaceContext.getLevel().getBlockState(blockPlaceContext.getClickedPos());
+        // Checkt, ob der BlockState schon der Type dieser Klasse ist (also schon eine Tasse dort steht)
+        // fügt dann eine weitere hinzu
+        if (blockstate.is(this)) {
+            return blockstate
+                    .setValue(CUPS, Math.min(3, blockstate.getValue(CUPS) + 1));
+        } else {
+            // Platziert die Tasse in der richtigen Richtung
+            return this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
+        }
+    }
+
+    //  Setzt den Shape je nach Anzahl der Cups
+    public VoxelShape getShape(BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
+        return switch (blockState.getValue(CUPS)) {
+            default -> SHAPE_ONE;
+            case 2 -> SHAPE_TWO;
+            case 3 -> SHAPE_THREE;
+        };
+    }
+
+    // Setzt den BlockState
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_152840_) {
+        p_152840_.add(CUPS, FACING);
+    }
+
+}

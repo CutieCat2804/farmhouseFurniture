@@ -1,8 +1,8 @@
-package github.cutiecattv.farmhousefurniture;
+package github.cutiecat2804.farmhousefurniture;
 
-import github.cutiecattv.farmhousefurniture.init.BlockInit;
-import github.cutiecattv.farmhousefurniture.init.CreativeTabInit;
-import github.cutiecattv.farmhousefurniture.init.ItemInit;
+import github.cutiecat2804.farmhousefurniture.init.BlockInit;
+import github.cutiecat2804.farmhousefurniture.init.CreativeTabInit;
+import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

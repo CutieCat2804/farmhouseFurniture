@@ -1,6 +1,6 @@
-package github.cutiecattv.farmhousefurniture.init;
+package github.cutiecat2804.farmhousefurniture.init;
 
-import github.cutiecattv.farmhousefurniture.FarmhouseFurniture;
+import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

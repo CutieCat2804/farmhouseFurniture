@@ -1,6 +1,7 @@
-package github.cutiecattv.farmhousefurniture.init;
+package github.cutiecat2804.farmhousefurniture.init;
 
-import github.cutiecattv.farmhousefurniture.FarmhouseFurniture;
+import github.cutiecat2804.farmhousefurniture.block.CupBlock;
+import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;

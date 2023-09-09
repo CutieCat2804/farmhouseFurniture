@@ -1,6 +1,6 @@
-package github.cutiecattv.farmhousefurniture.init;
+package github.cutiecat2804.farmhousefurniture.init;
 
-import github.cutiecattv.farmhousefurniture.FarmhouseFurniture;
+import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static github.cutiecattv.farmhousefurniture.init.CreativeTabInit.addToTab;
+import static github.cutiecat2804.farmhousefurniture.init.CreativeTabInit.addToTab;
 
 public class ItemInit {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, FarmhouseFurniture.MODID);
