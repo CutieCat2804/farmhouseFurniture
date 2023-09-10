@@ -25,6 +25,12 @@ public class ItemInit {
                             .build())
             )));
 
+
+    public static final RegistryObject<Item> BRUSH = addToTab(ITEMS.register("brush",
+            () -> new Item(new Item.Properties()
+                    .stacksTo(1)
+            )));
+
     public static final RegistryObject<BlockItem> EXAMPLE_BLOCK_ITEM = addToTab(ITEMS.register("example_block",
             () -> new BlockItem(BlockInit.EXAMPLE_BLOCK.get(), new Item.Properties())));
 
