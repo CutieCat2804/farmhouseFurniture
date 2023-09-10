@@ -17,7 +17,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        simpleItem(ItemInit.EXAMPLE_ITEM);
+        simpleItem(ItemInit.PAINTBRUSH);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

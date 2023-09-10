@@ -1,5 +1,6 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
+import github.cutiecat2804.farmhousefurniture.enums.PlateColors;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -34,9 +36,15 @@ public class PlateBlock extends Block {
     public static final IntegerProperty PLATES = IntegerProperty.create("plates", 1, 3);
     public static final IntegerProperty CUPS = IntegerProperty.create("cups", 0, 1);
 
+    public static final EnumProperty<PlateColors> COLOR = EnumProperty.create("color", PlateColors.class);
+
     public PlateBlock(BlockBehaviour.Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(PLATES, 1).setValue(CUPS, 0).setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(PLATES, 1)
+                .setValue(CUPS, 0)
+                .setValue(FACING, Direction.NORTH)
+                .setValue(COLOR, PlateColors.GREEN));
     }
 
     public boolean canSurvive(@NotNull BlockState blockState, @NotNull LevelReader levelReader, BlockPos blockPos) {
@@ -74,20 +82,20 @@ public class PlateBlock extends Block {
                             .setValue(FACING, blockState.getValue(FACING))
             );
 
-            if(!player.isCreative()) {
+            if (!player.isCreative()) {
                 player.getItemInHand(interactionHand).setCount(player.getItemInHand(interactionHand).getCount() - 1);
             }
 
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        if (player.isShiftKeyDown() && player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(CUPS) > 1) {
+        if (player.isShiftKeyDown() && player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(PLATES) > 1) {
             level.setBlockAndUpdate(
                     blockPos,
-                    this.defaultBlockState().setValue(CUPS, blockState.getValue(CUPS) - 1)
+                    this.defaultBlockState().setValue(PLATES, blockState.getValue(PLATES) - 1)
             );
-            if(!player.isCreative()) {
-                player.addItem(ItemInit.CUP.get().getDefaultInstance());
+            if (!player.isCreative()) {
+                player.addItem(ItemInit.PLATE.get().getDefaultInstance());
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
@@ -102,9 +110,9 @@ public class PlateBlock extends Block {
             case 3 -> SHAPE_THREE;
         };
 
-       if(blockState.getValue(PLATES) == 1 && blockState.getValue(CUPS) == 1) {
-           shape = SHAPE_WITH_CUP;
-       }
+        if (blockState.getValue(PLATES) == 1 && blockState.getValue(CUPS) == 1) {
+            shape = SHAPE_WITH_CUP;
+        }
 
         return shape;
 
@@ -112,6 +120,6 @@ public class PlateBlock extends Block {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
-        blockBlockStateBuilder.add(PLATES, CUPS, FACING);
+        blockBlockStateBuilder.add(PLATES, CUPS, FACING, COLOR);
     }
 }

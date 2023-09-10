@@ -1,0 +1,7 @@
+{
+  "parent": "farmhousefurniture:block/plate/plate_two_plates",
+  "textures": {
+    "1": "farmhousefurniture:block/plate/plate_blue",
+    "particle": "farmhousefurniture:block/plate/plate_blue"
+  }
+}

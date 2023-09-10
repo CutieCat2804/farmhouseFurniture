@@ -26,7 +26,7 @@ public class ItemInit {
             )));
 
 
-    public static final RegistryObject<Item> BRUSH = addToTab(ITEMS.register("brush",
+    public static final RegistryObject<Item> PAINTBRUSH = addToTab(ITEMS.register("paintbrush",
             () -> new Item(new Item.Properties()
                     .stacksTo(1)
             )));

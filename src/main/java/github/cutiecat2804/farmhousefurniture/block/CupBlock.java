@@ -1,5 +1,6 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
+import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -78,7 +79,7 @@ public class CupBlock extends Block {
 
             // Gibt Spieler in Survival Tasse wieder ins Inventar
             if(!player.isCreative()) {
-                player.getItemInHand(interactionHand).setCount(player.getItemInHand(interactionHand).getCount() - 1);
+                player.addItem(ItemInit.CUP.get().getDefaultInstance());
             }
 
             return InteractionResult.sidedSuccess(level.isClientSide);
