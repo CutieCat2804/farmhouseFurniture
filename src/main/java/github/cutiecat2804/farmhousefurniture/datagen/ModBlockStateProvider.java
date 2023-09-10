@@ -61,7 +61,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         createColorVariants("block/plate/plate_one_plate", "block/plate/plate", colors);
         createColorVariants("block/plate/plate_two_plates", "block/plate/plate", colors);
         createColorVariants("block/plate/plate_three_plates", "block/plate/plate", colors);
-//        createColorVariants("block/plate/plate_with_cup", "block/plate/plate_with_cup", colors);
+        createColorVariants("block/plate/plate_with_cup", "block/plate/plate", colors);
 
         simpleBlockItem(BlockInit.PLATE.get(), this.models().getExistingFile(resLoc.withPath("block/plate/plate_one_plate_white")));
 
@@ -79,12 +79,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
                             };
 
                             if (state.getValue(PlateBlock.PLATES) == 1 && state.getValue(PlateBlock.CUPS) == 1) {
-                                path = "block/plate/plate_with_cup";
+                                path = "block/plate/plate_with_cup_" + state.getValue(PlateBlock.COLOR).getSerializedName();
                             }
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
-                                    .rotationY(((int) state.getValue(CupBlock.FACING).toYRot() + 270) % 360)
+                                    .rotationY(((int) state.getValue(PlateBlock.FACING).toYRot() + 180) % 360)
                                     .build();
                         }
                 );

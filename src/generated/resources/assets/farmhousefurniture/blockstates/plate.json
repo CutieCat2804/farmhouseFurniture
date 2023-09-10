@@ -2,453 +2,453 @@
   "variants": {
     "color=beige,cups=0,facing=east,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_beige",
-      "y": 180
+      "y": 90
     },
     "color=beige,cups=0,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_beige",
-      "y": 180
+      "y": 90
     },
     "color=beige,cups=0,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_beige",
-      "y": 180
+      "y": 90
     },
     "color=beige,cups=0,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_beige",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_one_plate_beige"
     },
     "color=beige,cups=0,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_beige",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_beige"
     },
     "color=beige,cups=0,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_beige",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_beige"
     },
     "color=beige,cups=0,facing=south,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_beige",
-      "y": 270
+      "y": 180
     },
     "color=beige,cups=0,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_beige",
-      "y": 270
+      "y": 180
     },
     "color=beige,cups=0,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_beige",
-      "y": 270
+      "y": 180
     },
     "color=beige,cups=0,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_beige"
+      "model": "farmhousefurniture:block/plate/plate_one_plate_beige",
+      "y": 270
     },
     "color=beige,cups=0,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_beige"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_beige",
+      "y": 270
     },
     "color=beige,cups=0,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_beige"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_beige",
+      "y": 270
     },
     "color=beige,cups=1,facing=east,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 180
+      "model": "farmhousefurniture:block/plate/plate_with_cup_beige",
+      "y": 90
     },
     "color=beige,cups=1,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_beige",
-      "y": 180
+      "y": 90
     },
     "color=beige,cups=1,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_beige",
-      "y": 180
+      "y": 90
     },
     "color=beige,cups=1,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_with_cup_beige"
     },
     "color=beige,cups=1,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_beige",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_beige"
     },
     "color=beige,cups=1,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_beige",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_beige"
     },
     "color=beige,cups=1,facing=south,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 270
+      "model": "farmhousefurniture:block/plate/plate_with_cup_beige",
+      "y": 180
     },
     "color=beige,cups=1,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_beige",
-      "y": 270
+      "y": 180
     },
     "color=beige,cups=1,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_beige",
-      "y": 270
+      "y": 180
     },
     "color=beige,cups=1,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup"
+      "model": "farmhousefurniture:block/plate/plate_with_cup_beige",
+      "y": 270
     },
     "color=beige,cups=1,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_beige"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_beige",
+      "y": 270
     },
     "color=beige,cups=1,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_beige"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_beige",
+      "y": 270
     },
     "color=blue,cups=0,facing=east,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_blue",
-      "y": 180
+      "y": 90
     },
     "color=blue,cups=0,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_blue",
-      "y": 180
+      "y": 90
     },
     "color=blue,cups=0,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_blue",
-      "y": 180
+      "y": 90
     },
     "color=blue,cups=0,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_blue",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_one_plate_blue"
     },
     "color=blue,cups=0,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_blue",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_blue"
     },
     "color=blue,cups=0,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_blue",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_blue"
     },
     "color=blue,cups=0,facing=south,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_blue",
-      "y": 270
+      "y": 180
     },
     "color=blue,cups=0,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_blue",
-      "y": 270
+      "y": 180
     },
     "color=blue,cups=0,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_blue",
-      "y": 270
+      "y": 180
     },
     "color=blue,cups=0,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_blue"
+      "model": "farmhousefurniture:block/plate/plate_one_plate_blue",
+      "y": 270
     },
     "color=blue,cups=0,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_blue"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_blue",
+      "y": 270
     },
     "color=blue,cups=0,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_blue"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_blue",
+      "y": 270
     },
     "color=blue,cups=1,facing=east,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 180
+      "model": "farmhousefurniture:block/plate/plate_with_cup_blue",
+      "y": 90
     },
     "color=blue,cups=1,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_blue",
-      "y": 180
+      "y": 90
     },
     "color=blue,cups=1,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_blue",
-      "y": 180
+      "y": 90
     },
     "color=blue,cups=1,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_with_cup_blue"
     },
     "color=blue,cups=1,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_blue",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_blue"
     },
     "color=blue,cups=1,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_blue",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_blue"
     },
     "color=blue,cups=1,facing=south,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 270
+      "model": "farmhousefurniture:block/plate/plate_with_cup_blue",
+      "y": 180
     },
     "color=blue,cups=1,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_blue",
-      "y": 270
+      "y": 180
     },
     "color=blue,cups=1,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_blue",
-      "y": 270
+      "y": 180
     },
     "color=blue,cups=1,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup"
+      "model": "farmhousefurniture:block/plate/plate_with_cup_blue",
+      "y": 270
     },
     "color=blue,cups=1,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_blue"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_blue",
+      "y": 270
     },
     "color=blue,cups=1,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_blue"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_blue",
+      "y": 270
     },
     "color=green,cups=0,facing=east,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_green",
-      "y": 180
+      "y": 90
     },
     "color=green,cups=0,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_green",
-      "y": 180
+      "y": 90
     },
     "color=green,cups=0,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_green",
-      "y": 180
+      "y": 90
     },
     "color=green,cups=0,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_green",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_one_plate_green"
     },
     "color=green,cups=0,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_green",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_green"
     },
     "color=green,cups=0,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_green",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_green"
     },
     "color=green,cups=0,facing=south,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_green",
-      "y": 270
+      "y": 180
     },
     "color=green,cups=0,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_green",
-      "y": 270
+      "y": 180
     },
     "color=green,cups=0,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_green",
-      "y": 270
+      "y": 180
     },
     "color=green,cups=0,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_green"
+      "model": "farmhousefurniture:block/plate/plate_one_plate_green",
+      "y": 270
     },
     "color=green,cups=0,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_green"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_green",
+      "y": 270
     },
     "color=green,cups=0,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_green"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_green",
+      "y": 270
     },
     "color=green,cups=1,facing=east,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 180
+      "model": "farmhousefurniture:block/plate/plate_with_cup_green",
+      "y": 90
     },
     "color=green,cups=1,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_green",
-      "y": 180
+      "y": 90
     },
     "color=green,cups=1,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_green",
-      "y": 180
+      "y": 90
     },
     "color=green,cups=1,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_with_cup_green"
     },
     "color=green,cups=1,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_green",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_green"
     },
     "color=green,cups=1,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_green",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_green"
     },
     "color=green,cups=1,facing=south,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 270
+      "model": "farmhousefurniture:block/plate/plate_with_cup_green",
+      "y": 180
     },
     "color=green,cups=1,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_green",
-      "y": 270
+      "y": 180
     },
     "color=green,cups=1,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_green",
-      "y": 270
+      "y": 180
     },
     "color=green,cups=1,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup"
+      "model": "farmhousefurniture:block/plate/plate_with_cup_green",
+      "y": 270
     },
     "color=green,cups=1,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_green"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_green",
+      "y": 270
     },
     "color=green,cups=1,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_green"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_green",
+      "y": 270
     },
     "color=white,cups=0,facing=east,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_white",
-      "y": 180
+      "y": 90
     },
     "color=white,cups=0,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_white",
-      "y": 180
+      "y": 90
     },
     "color=white,cups=0,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_white",
-      "y": 180
+      "y": 90
     },
     "color=white,cups=0,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_white",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_one_plate_white"
     },
     "color=white,cups=0,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_white",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_white"
     },
     "color=white,cups=0,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_white",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_white"
     },
     "color=white,cups=0,facing=south,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_white",
-      "y": 270
+      "y": 180
     },
     "color=white,cups=0,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_white",
-      "y": 270
+      "y": 180
     },
     "color=white,cups=0,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_white",
-      "y": 270
+      "y": 180
     },
     "color=white,cups=0,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_white"
+      "model": "farmhousefurniture:block/plate/plate_one_plate_white",
+      "y": 270
     },
     "color=white,cups=0,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_white"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_white",
+      "y": 270
     },
     "color=white,cups=0,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_white"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_white",
+      "y": 270
     },
     "color=white,cups=1,facing=east,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 180
+      "model": "farmhousefurniture:block/plate/plate_with_cup_white",
+      "y": 90
     },
     "color=white,cups=1,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_white",
-      "y": 180
+      "y": 90
     },
     "color=white,cups=1,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_white",
-      "y": 180
+      "y": 90
     },
     "color=white,cups=1,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_with_cup_white"
     },
     "color=white,cups=1,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_white",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_white"
     },
     "color=white,cups=1,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_white",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_white"
     },
     "color=white,cups=1,facing=south,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 270
+      "model": "farmhousefurniture:block/plate/plate_with_cup_white",
+      "y": 180
     },
     "color=white,cups=1,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_white",
-      "y": 270
+      "y": 180
     },
     "color=white,cups=1,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_white",
-      "y": 270
+      "y": 180
     },
     "color=white,cups=1,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup"
+      "model": "farmhousefurniture:block/plate/plate_with_cup_white",
+      "y": 270
     },
     "color=white,cups=1,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_white"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_white",
+      "y": 270
     },
     "color=white,cups=1,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_white"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_white",
+      "y": 270
     },
     "color=yellow,cups=0,facing=east,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_yellow",
-      "y": 180
+      "y": 90
     },
     "color=yellow,cups=0,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_yellow",
-      "y": 180
+      "y": 90
     },
     "color=yellow,cups=0,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_yellow",
-      "y": 180
+      "y": 90
     },
     "color=yellow,cups=0,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_yellow",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_one_plate_yellow"
     },
     "color=yellow,cups=0,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_yellow",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_yellow"
     },
     "color=yellow,cups=0,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_yellow",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_yellow"
     },
     "color=yellow,cups=0,facing=south,plates=1": {
       "model": "farmhousefurniture:block/plate/plate_one_plate_yellow",
-      "y": 270
+      "y": 180
     },
     "color=yellow,cups=0,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_yellow",
-      "y": 270
+      "y": 180
     },
     "color=yellow,cups=0,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_yellow",
-      "y": 270
+      "y": 180
     },
     "color=yellow,cups=0,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_one_plate_yellow"
+      "model": "farmhousefurniture:block/plate/plate_one_plate_yellow",
+      "y": 270
     },
     "color=yellow,cups=0,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_yellow"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_yellow",
+      "y": 270
     },
     "color=yellow,cups=0,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_yellow"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_yellow",
+      "y": 270
     },
     "color=yellow,cups=1,facing=east,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 180
+      "model": "farmhousefurniture:block/plate/plate_with_cup_yellow",
+      "y": 90
     },
     "color=yellow,cups=1,facing=east,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_yellow",
-      "y": 180
+      "y": 90
     },
     "color=yellow,cups=1,facing=east,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_yellow",
-      "y": 180
+      "y": 90
     },
     "color=yellow,cups=1,facing=north,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_with_cup_yellow"
     },
     "color=yellow,cups=1,facing=north,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_yellow",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_two_plates_yellow"
     },
     "color=yellow,cups=1,facing=north,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_yellow",
-      "y": 90
+      "model": "farmhousefurniture:block/plate/plate_three_plates_yellow"
     },
     "color=yellow,cups=1,facing=south,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup",
-      "y": 270
+      "model": "farmhousefurniture:block/plate/plate_with_cup_yellow",
+      "y": 180
     },
     "color=yellow,cups=1,facing=south,plates=2": {
       "model": "farmhousefurniture:block/plate/plate_two_plates_yellow",
-      "y": 270
+      "y": 180
     },
     "color=yellow,cups=1,facing=south,plates=3": {
       "model": "farmhousefurniture:block/plate/plate_three_plates_yellow",
-      "y": 270
+      "y": 180
     },
     "color=yellow,cups=1,facing=west,plates=1": {
-      "model": "farmhousefurniture:block/plate/plate_with_cup"
+      "model": "farmhousefurniture:block/plate/plate_with_cup_yellow",
+      "y": 270
     },
     "color=yellow,cups=1,facing=west,plates=2": {
-      "model": "farmhousefurniture:block/plate/plate_two_plates_yellow"
+      "model": "farmhousefurniture:block/plate/plate_two_plates_yellow",
+      "y": 270
     },
     "color=yellow,cups=1,facing=west,plates=3": {
-      "model": "farmhousefurniture:block/plate/plate_three_plates_yellow"
+      "model": "farmhousefurniture:block/plate/plate_three_plates_yellow",
+      "y": 270
     }
   }
 }
