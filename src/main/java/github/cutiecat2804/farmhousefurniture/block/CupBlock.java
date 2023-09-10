@@ -2,8 +2,12 @@ package github.cutiecat2804.farmhousefurniture.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -12,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
@@ -43,7 +48,10 @@ public class CupBlock extends Block {
     // Checkt, ob es der richtige Klick und Block ist und ob die Anzahl kleiner 3 ist
     // bestimmt darüber, ob der Block noch ersetzt werden kann
     public boolean canBeReplaced(@NotNull BlockState blockState, BlockPlaceContext blockPlaceContext) {
-        return !blockPlaceContext.isSecondaryUseActive() && blockPlaceContext.getItemInHand().getItem() == this.asItem() && blockState.getValue(CUPS) < 3 || super.canBeReplaced(blockState, blockPlaceContext);
+        return !blockPlaceContext.isSecondaryUseActive()
+                && blockPlaceContext.getItemInHand().getItem() == this.asItem()
+                && blockState.getValue(CUPS) < 3
+                || super.canBeReplaced(blockState, blockPlaceContext);
     }
 
     // Wird aufgerufen, wenn ein neuer Block zu dem existierenden hinzugefügt wird
@@ -58,6 +66,24 @@ public class CupBlock extends Block {
             // Platziert die Tasse in der richtigen Richtung
             return this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
         }
+    }
+
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+        // Entfernt mit Shiftklick eine Tasse vom Block
+        if (player.isShiftKeyDown() && player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(CUPS) > 1) {
+            level.setBlockAndUpdate(
+                    blockPos,
+                    this.defaultBlockState().setValue(CUPS, blockState.getValue(CUPS) - 1)
+            );
+
+            // Gibt Spieler in Survival Tasse wieder ins Inventar
+            if(!player.isCreative()) {
+                player.getItemInHand(interactionHand).setCount(player.getItemInHand(interactionHand).getCount() - 1);
+            }
+
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+        return InteractionResult.PASS;
     }
 
     //  Setzt den Shape je nach Anzahl der Cups

@@ -44,7 +44,11 @@ public class PlateBlock extends Block {
     }
 
     public boolean canBeReplaced(@NotNull BlockState blockState, BlockPlaceContext blockPlaceContext) {
-        return !blockPlaceContext.isSecondaryUseActive() && blockPlaceContext.getItemInHand().getItem() == this.asItem() && blockState.getValue(PLATES) < 3 || super.canBeReplaced(blockState, blockPlaceContext);
+        return !blockPlaceContext.isSecondaryUseActive()
+                && blockPlaceContext.getItemInHand().getItem() == this.asItem()
+                && blockState.getValue(PLATES) < 3
+                && blockState.getValue(CUPS) < 1
+                || super.canBeReplaced(blockState, blockPlaceContext);
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
@@ -61,7 +65,7 @@ public class PlateBlock extends Block {
 
     // Damit beim Klicken mit einer Tasse auf den Teller sich der Block ändert
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
-        if (player.getItemInHand(interactionHand).getItem() == ItemInit.CUP.get() && blockState.getValue(PLATES) == 1) {
+        if (player.getItemInHand(interactionHand).getItem() == ItemInit.CUP.get() && blockState.getValue(PLATES) == 1 && blockState.getValue(CUPS) != 1) {
             // updated block state und setzt ihn neu. Wichtig, weil ihr ein anderer Block angezeigt werden soll
             level.setBlockAndUpdate(
                     blockPos,
@@ -76,6 +80,18 @@ public class PlateBlock extends Block {
 
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
+
+        if (player.isShiftKeyDown() && player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(CUPS) > 1) {
+            level.setBlockAndUpdate(
+                    blockPos,
+                    this.defaultBlockState().setValue(CUPS, blockState.getValue(CUPS) - 1)
+            );
+            if(!player.isCreative()) {
+                player.addItem(ItemInit.CUP.get().getDefaultInstance());
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
         return InteractionResult.PASS;
     }
 

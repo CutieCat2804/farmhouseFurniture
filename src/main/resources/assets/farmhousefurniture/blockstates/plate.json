@@ -13,28 +13,28 @@
       "model": "farmhousefurniture:block/plate_one_plate"
     },
     "facing=west,plates=2,cups=0": {
-      "model": "farmhousefurniture:block/plate_one_plate"
+      "model": "farmhousefurniture:block/plate_two_plates"
     },
     "facing=north,plates=2,cups=0": {
-      "model": "farmhousefurniture:block/plate_one_plate"
+      "model": "farmhousefurniture:block/plate_two_plates"
     },
     "facing=east,plates=2,cups=0": {
-      "model": "farmhousefurniture:block/plate_one_plate"
+      "model": "farmhousefurniture:block/plate_two_plates"
     },
     "facing=south,plates=2,cups=0": {
-      "model": "farmhousefurniture:block/plate_one_plate"
+      "model": "farmhousefurniture:block/plate_two_plates"
     },
     "facing=west,plates=3,cups=0": {
-      "model": "farmhousefurniture:block/plate_one_plate"
+      "model": "farmhousefurniture:block/plate_three_plates"
     },
     "facing=north,plates=3,cups=0": {
-      "model": "farmhousefurniture:block/plate_one_plate"
+      "model": "farmhousefurniture:block/plate_three_plates"
     },
     "facing=east,plates=3,cups=0": {
-      "model": "farmhousefurniture:block/plate_one_plate"
+      "model": "farmhousefurniture:block/plate_three_plates"
     },
     "facing=south,plates=3,cups=0": {
-      "model": "farmhousefurniture:block/plate_one_plate"
+      "model": "farmhousefurniture:block/plate_three_plates"
     },
     "facing=west,plates=1,cups=1": {
       "model": "farmhousefurniture:block/plate_with_cup",
