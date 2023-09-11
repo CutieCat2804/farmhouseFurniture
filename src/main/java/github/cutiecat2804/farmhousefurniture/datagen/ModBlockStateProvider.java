@@ -2,6 +2,7 @@ package github.cutiecat2804.farmhousefurniture.datagen;
 
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import github.cutiecat2804.farmhousefurniture.block.CupBlock;
+import github.cutiecat2804.farmhousefurniture.block.DishBlockUtils;
 import github.cutiecat2804.farmhousefurniture.block.PlateBlock;
 import github.cutiecat2804.farmhousefurniture.enums.PlateColors;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
@@ -32,6 +33,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerPlate();
     }
 
+    // Erstellt simple Models und BlockStates
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
@@ -50,16 +52,16 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         {
                             String path = switch (state.getValue(CupBlock.CUPS)) {
                                 default ->
-                                        "block/cup/cup_one_cup_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                        "block/cup/cup_one_cup_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                                 case 2 ->
-                                        "block/cup/cup_two_cups_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                        "block/cup/cup_two_cups_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                                 case 3 ->
-                                        "block/cup/cup_three_cups_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                        "block/cup/cup_three_cups_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                             };
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
-                                    .rotationY(((int) state.getValue(CupBlock.FACING).toYRot() + 270) % 360)
+                                    .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 270) % 360)
                                     .build();
                         }
                 );
@@ -75,32 +77,34 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlockItem(BlockInit.PLATE.get(), this.models().getExistingFile(resLoc.withPath("block/plate/plate_one_plate_white")));
 
-
+        // Loopt durch alle BlockState Props durch und erstellt daraus den BlockState
         this.getVariantBuilder(BlockInit.PLATE.get())
                 .forAllStates(state ->
                         {
                             String path = switch (state.getValue(PlateBlock.PLATES)) {
                                 default ->
-                                        "block/plate/plate_one_plate_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                        "block/plate/plate_one_plate_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                                 case 2 ->
-                                        "block/plate/plate_two_plates_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                        "block/plate/plate_two_plates_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                                 case 3 ->
-                                        "block/plate/plate_three_plates_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                        "block/plate/plate_three_plates_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                             };
 
                             if (state.getValue(PlateBlock.PLATES) == 1 && state.getValue(PlateBlock.CUPS) == 1) {
-                                path = "block/plate/plate_with_cup_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                path = "block/plate/plate_with_cup_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                             }
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
-                                    .rotationY(((int) state.getValue(PlateBlock.FACING).toYRot() + 180) % 360)
+                                    // Fügt die benötigte Rotation hinzu
+                                    .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 180) % 360)
                                     .build();
                         }
                 );
 
     }
 
+    // Erstellt für alle definierten Farben ein Model mit der gegebenen Texture
     private void createColorVariants(String modelPath, String texturePath, List<String> colors) {
         var model = this.models().getExistingFile(resLoc.withPath(modelPath));
 

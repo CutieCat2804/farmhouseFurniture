@@ -1,7 +1,6 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
 import github.cutiecat2804.farmhousefurniture.enums.PlateColors;
-import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -12,12 +11,9 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -25,9 +21,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 public class CupBlock extends Block {
-    // Definiert in welche Richtung Block gesetzt werden kann
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-
     // (position front (z), position bottom (y), position left (x), position back (z), position top (y), position right (X))
     private static final VoxelShape SHAPE_ONE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 3.0D, 10.0D);
     private static final VoxelShape SHAPE_TWO = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 6.0D, 10.0D);
@@ -35,12 +28,14 @@ public class CupBlock extends Block {
 
     // Setzt Range wie viele Cups auf einem Block sein dürfen
     public static final IntegerProperty CUPS = IntegerProperty.create("cups", 1, 3);
-    public static final EnumProperty<PlateColors> COLOR = EnumProperty.create("color", PlateColors.class);
 
     public CupBlock(BlockBehaviour.Properties properties) {
         super(properties);
         // Setzt den default BlockState
-        this.registerDefaultState(this.stateDefinition.any().setValue(CUPS, 1).setValue(FACING, Direction.NORTH).setValue(COLOR, PlateColors.WHITE));
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(CUPS, 1)
+                .setValue(DishBlockUtils.FACING, Direction.NORTH)
+                .setValue(DishBlockUtils.COLOR, PlateColors.WHITE));
     }
 
     // Kann nicht in die Luft gesetzt werden, wird von Wasser zerstört
@@ -59,47 +54,16 @@ public class CupBlock extends Block {
     }
 
     // Wird aufgerufen, wenn ein neuer Block zu dem existierenden hinzugefügt wird
-    public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
-        BlockState blockstate = blockPlaceContext.getLevel().getBlockState(blockPlaceContext.getClickedPos());
-        // Checkt, ob der BlockState schon der Type dieser Klasse ist (also schon eine Tasse dort steht)
-        // fügt dann eine weitere hinzu
-        if (blockstate.is(this)) {
-            return blockstate
-                    .setValue(CUPS, Math.min(3, blockstate.getValue(CUPS) + 1));
-        } else {
-            // Platziert die Tasse in der richtigen Richtung
-            return this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
-        }
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext blockPlaceContext) {
+        return DishBlockUtils.getStateForPlacement(blockPlaceContext, this, CUPS);
     }
 
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
-        // Entfernt mit Shiftklick eine Tasse vom Block
-        if (player.isShiftKeyDown() && player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(CUPS) > 1) {
-            level.setBlockAndUpdate(
-                    blockPos,
-                    this.defaultBlockState()
-                            .setValue(CUPS, blockState.getValue(CUPS) - 1)
-                            .setValue(FACING, blockState.getValue(FACING))
-                            .setValue(COLOR, blockState.getValue(COLOR))
-            );
-
-            // Gibt Spieler in Survival Tasse wieder ins Inventar
-            if(!player.isCreative()) {
-                player.addItem(ItemInit.CUP.get().getDefaultInstance());
-            }
-
+        if (DishBlockUtils.removeDishWithShift(this, CUPS, blockState, level, blockPos, player, interactionHand)) {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        if (player.getItemInHand(interactionHand).getItem() == ItemInit.PAINTBRUSH.get()) {
-            level.setBlockAndUpdate(
-                    blockPos,
-                    this.defaultBlockState()
-                            .setValue(COLOR, PlateColors.values()[((blockState.getValue(COLOR)).ordinal() + 1) % PlateColors.values().length])
-                            .setValue(CUPS, blockState.getValue(CUPS))
-                            .setValue(FACING, blockState.getValue(FACING))
-            );
-
+        if (DishBlockUtils.changeColor(blockState, level, blockPos, player, interactionHand)) {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
@@ -117,7 +81,7 @@ public class CupBlock extends Block {
 
     // Setzt den BlockState
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
-        blockBlockStateBuilder.add(CUPS, FACING, COLOR);
+        blockBlockStateBuilder.add(CUPS, DishBlockUtils.FACING, DishBlockUtils.COLOR);
     }
 
 }

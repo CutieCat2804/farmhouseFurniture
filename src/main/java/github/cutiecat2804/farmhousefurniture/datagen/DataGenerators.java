@@ -13,6 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = FarmhouseFurniture.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
+    // Führt alle definierten Generatoren aus
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
