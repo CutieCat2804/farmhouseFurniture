@@ -44,7 +44,7 @@ public class PlateBlock extends Block {
                 .setValue(PLATES, 1)
                 .setValue(CUPS, 0)
                 .setValue(FACING, Direction.NORTH)
-                .setValue(COLOR, PlateColors.GREEN));
+                .setValue(COLOR, PlateColors.WHITE));
     }
 
     public boolean canSurvive(@NotNull BlockState blockState, @NotNull LevelReader levelReader, BlockPos blockPos) {
@@ -92,11 +92,27 @@ public class PlateBlock extends Block {
         if (player.isShiftKeyDown() && player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(PLATES) > 1) {
             level.setBlockAndUpdate(
                     blockPos,
-                    this.defaultBlockState().setValue(PLATES, blockState.getValue(PLATES) - 1)
+                    this.defaultBlockState()
+                            .setValue(PLATES, blockState.getValue(PLATES) - 1)
+                            .setValue(FACING, blockState.getValue(FACING))
+                            .setValue(COLOR, blockState.getValue(COLOR))
             );
             if (!player.isCreative()) {
                 player.addItem(ItemInit.PLATE.get().getDefaultInstance());
             }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
+        if (player.getItemInHand(interactionHand).getItem() == ItemInit.PAINTBRUSH.get()) {
+            level.setBlockAndUpdate(
+                    blockPos,
+                    this.defaultBlockState()
+                            .setValue(COLOR, PlateColors.values()[((blockState.getValue(COLOR)).ordinal() + 1) % PlateColors.values().length])
+                            .setValue(PLATES, blockState.getValue(PLATES))
+                            .setValue(CUPS, blockState.getValue(CUPS))
+                            .setValue(FACING, blockState.getValue(FACING))
+            );
+
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 

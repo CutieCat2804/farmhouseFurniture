@@ -1,5 +1,6 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
+import github.cutiecat2804.farmhousefurniture.enums.PlateColors;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -33,11 +35,12 @@ public class CupBlock extends Block {
 
     // Setzt Range wie viele Cups auf einem Block sein dürfen
     public static final IntegerProperty CUPS = IntegerProperty.create("cups", 1, 3);
+    public static final EnumProperty<PlateColors> COLOR = EnumProperty.create("color", PlateColors.class);
 
     public CupBlock(BlockBehaviour.Properties properties) {
         super(properties);
         // Setzt den default BlockState
-        this.registerDefaultState(this.stateDefinition.any().setValue(CUPS, 1).setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(CUPS, 1).setValue(FACING, Direction.NORTH).setValue(COLOR, PlateColors.WHITE));
     }
 
     // Kann nicht in die Luft gesetzt werden, wird von Wasser zerstört
@@ -74,7 +77,10 @@ public class CupBlock extends Block {
         if (player.isShiftKeyDown() && player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(CUPS) > 1) {
             level.setBlockAndUpdate(
                     blockPos,
-                    this.defaultBlockState().setValue(CUPS, blockState.getValue(CUPS) - 1)
+                    this.defaultBlockState()
+                            .setValue(CUPS, blockState.getValue(CUPS) - 1)
+                            .setValue(FACING, blockState.getValue(FACING))
+                            .setValue(COLOR, blockState.getValue(COLOR))
             );
 
             // Gibt Spieler in Survival Tasse wieder ins Inventar
@@ -84,6 +90,19 @@ public class CupBlock extends Block {
 
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
+
+        if (player.getItemInHand(interactionHand).getItem() == ItemInit.PAINTBRUSH.get()) {
+            level.setBlockAndUpdate(
+                    blockPos,
+                    this.defaultBlockState()
+                            .setValue(COLOR, PlateColors.values()[((blockState.getValue(COLOR)).ordinal() + 1) % PlateColors.values().length])
+                            .setValue(CUPS, blockState.getValue(CUPS))
+                            .setValue(FACING, blockState.getValue(FACING))
+            );
+
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
         return InteractionResult.PASS;
     }
 
@@ -98,7 +117,7 @@ public class CupBlock extends Block {
 
     // Setzt den BlockState
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
-        blockBlockStateBuilder.add(CUPS, FACING);
+        blockBlockStateBuilder.add(CUPS, FACING, COLOR);
     }
 
 }

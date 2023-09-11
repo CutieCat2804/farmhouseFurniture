@@ -38,20 +38,30 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerCup() {
-        simpleBlockItem(BlockInit.CUP.get(), this.models().getExistingFile(resLoc.withPath("block/cup/cup_one_cup")));
+        var colors = Arrays.stream(PlateColors.values()).map(PlateColors::getSerializedName).collect(Collectors.toList());
+        createColorVariants("block/cup/cup_one_cup", "block/plate/plate", colors);
+        createColorVariants("block/cup/cup_two_cups", "block/plate/plate", colors);
+        createColorVariants("block/cup/cup_three_cups", "block/plate/plate", colors);
+
+        simpleBlockItem(BlockInit.CUP.get(), this.models().getExistingFile(resLoc.withPath("block/cup/cup_one_cup_white")));
 
         this.getVariantBuilder(BlockInit.CUP.get())
                 .forAllStates(state ->
-                        ConfiguredModel.builder()
-                                .modelFile(this.models().getExistingFile(resLoc.withPath(
-                                        switch (state.getValue(CupBlock.CUPS)) {
-                                            default -> "block/cup/cup_one_cup";
-                                            case 2 -> "block/cup/cup_two_cups";
-                                            case 3 -> "block/cup/cup_three_cups";
-                                        }
-                                )))
-                                .rotationY(((int) state.getValue(CupBlock.FACING).toYRot() + 270) % 360)
-                                .build()
+                        {
+                            String path = switch (state.getValue(CupBlock.CUPS)) {
+                                default ->
+                                        "block/cup/cup_one_cup_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                case 2 ->
+                                        "block/cup/cup_two_cups_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                                case 3 ->
+                                        "block/cup/cup_three_cups_" + state.getValue(PlateBlock.COLOR).getSerializedName();
+                            };
+
+                            return ConfiguredModel.builder()
+                                    .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
+                                    .rotationY(((int) state.getValue(CupBlock.FACING).toYRot() + 270) % 360)
+                                    .build();
+                        }
                 );
 
     }
