@@ -1,10 +1,9 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
-import github.cutiecat2804.farmhousefurniture.enums.PlateColors;
+import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -19,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 public class DishBlockUtils {
     // Definiert in welche Richtung Block gesetzt werden kann
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final EnumProperty<PlateColors> COLOR = EnumProperty.create("color", PlateColors.class);
+    public static final EnumProperty<DishColor> COLOR = EnumProperty.create("color", DishColor.class);
 
     public static BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext, Block block, IntegerProperty property) {
         BlockState blockstate = blockPlaceContext.getLevel().getBlockState(blockPlaceContext.getClickedPos());
@@ -59,7 +58,7 @@ public class DishBlockUtils {
         if (player.getItemInHand(interactionHand).getItem() == ItemInit.PAINTBRUSH.get()) {
             level.setBlockAndUpdate(
                     blockPos,
-                    blockState.setValue(COLOR, PlateColors.values()[((blockState.getValue(COLOR)).ordinal() + 1) % PlateColors.values().length])
+                    blockState.setValue(COLOR, DishColor.values()[((blockState.getValue(COLOR)).ordinal() + 1) % DishColor.values().length])
             );
             return true;
         }

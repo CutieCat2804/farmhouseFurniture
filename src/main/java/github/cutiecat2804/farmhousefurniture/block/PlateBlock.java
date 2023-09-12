@@ -1,7 +1,6 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
-import github.cutiecat2804.farmhousefurniture.enums.PlateColors;
-import github.cutiecat2804.farmhousefurniture.init.ItemInit;
+import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -38,7 +37,7 @@ public class PlateBlock extends Block {
                 .setValue(PLATES, 1)
                 .setValue(CUPS, 0)
                 .setValue(DishBlockUtils.FACING, Direction.NORTH)
-                .setValue(DishBlockUtils.COLOR, PlateColors.WHITE));
+                .setValue(DishBlockUtils.COLOR, DishColor.WHITE));
     }
 
     public boolean canSurvive(@NotNull BlockState blockState, @NotNull LevelReader levelReader, BlockPos blockPos) {
@@ -58,7 +57,7 @@ public class PlateBlock extends Block {
     }
 
 
-    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         if (DishBlockUtils.addCupToPlate(this, blockState, level, blockPos, player, interactionHand)) {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }

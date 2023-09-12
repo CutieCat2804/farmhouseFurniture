@@ -4,7 +4,7 @@ import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import github.cutiecat2804.farmhousefurniture.block.CupBlock;
 import github.cutiecat2804.farmhousefurniture.block.DishBlockUtils;
 import github.cutiecat2804.farmhousefurniture.block.PlateBlock;
-import github.cutiecat2804.farmhousefurniture.enums.PlateColors;
+import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -40,7 +40,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerCup() {
-        var colors = Arrays.stream(PlateColors.values()).map(PlateColors::getSerializedName).collect(Collectors.toList());
+        var colors = Arrays.stream(DishColor.values()).map(DishColor::getSerializedName).collect(Collectors.toList());
         createColorVariants("block/cup/cup_one_cup", "block/plate/plate", colors);
         createColorVariants("block/cup/cup_two_cups", "block/plate/plate", colors);
         createColorVariants("block/cup/cup_three_cups", "block/plate/plate", colors);
@@ -69,7 +69,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerPlate() {
-        var colors = Arrays.stream(PlateColors.values()).map(PlateColors::getSerializedName).collect(Collectors.toList());
+        var colors = Arrays.stream(DishColor.values()).map(DishColor::getSerializedName).collect(Collectors.toList());
         createColorVariants("block/plate/plate_one_plate", "block/plate/plate", colors);
         createColorVariants("block/plate/plate_two_plates", "block/plate/plate", colors);
         createColorVariants("block/plate/plate_three_plates", "block/plate/plate", colors);

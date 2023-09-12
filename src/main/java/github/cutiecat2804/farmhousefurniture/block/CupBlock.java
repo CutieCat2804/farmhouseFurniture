@@ -1,6 +1,6 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
-import github.cutiecat2804.farmhousefurniture.enums.PlateColors;
+import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -35,7 +35,7 @@ public class CupBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(CUPS, 1)
                 .setValue(DishBlockUtils.FACING, Direction.NORTH)
-                .setValue(DishBlockUtils.COLOR, PlateColors.WHITE));
+                .setValue(DishBlockUtils.COLOR, DishColor.WHITE));
     }
 
     // Kann nicht in die Luft gesetzt werden, wird von Wasser zerstört
@@ -58,7 +58,7 @@ public class CupBlock extends Block {
         return DishBlockUtils.getStateForPlacement(blockPlaceContext, this, CUPS);
     }
 
-    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         if (DishBlockUtils.removeDishWithShift(this, CUPS, blockState, level, blockPos, player, interactionHand)) {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
