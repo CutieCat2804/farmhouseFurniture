@@ -1,7 +1,7 @@
 {
   "parent": "farmhousefurniture:block/cup/cup_three_cups",
   "textures": {
-    "1": "farmhousefurniture:block/plate/plate_green",
-    "particle": "farmhousefurniture:block/plate/plate_green"
+    "1": "farmhousefurniture:block/dish/dish_green",
+    "particle": "farmhousefurniture:block/dish/dish_green"
   }
 }

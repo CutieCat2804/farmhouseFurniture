@@ -41,9 +41,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void registerCup() {
         var colors = Arrays.stream(DishColor.values()).map(DishColor::getSerializedName).collect(Collectors.toList());
-        createColorVariants("block/cup/cup_one_cup", "block/plate/plate", colors);
-        createColorVariants("block/cup/cup_two_cups", "block/plate/plate", colors);
-        createColorVariants("block/cup/cup_three_cups", "block/plate/plate", colors);
+        createColorVariants("block/cup/cup_one_cup", "block/dish/dish", colors);
+        createColorVariants("block/cup/cup_two_cups", "block/dish/dish", colors);
+        createColorVariants("block/cup/cup_three_cups", "block/dish/dish", colors);
 
         simpleBlockItem(BlockInit.CUP.get(), this.models().getExistingFile(resLoc.withPath("block/cup/cup_one_cup_white")));
 
@@ -51,10 +51,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .forAllStates(state ->
                         {
                             String path = switch (state.getValue(CupBlock.CUPS)) {
-                                default ->
-                                        "block/cup/cup_one_cup_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
-                                case 2 ->
-                                        "block/cup/cup_two_cups_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
+                                default -> "block/cup/cup_one_cup_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
+                                case 2 -> "block/cup/cup_two_cups_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                                 case 3 ->
                                         "block/cup/cup_three_cups_" + state.getValue(DishBlockUtils.COLOR).getSerializedName();
                             };
@@ -70,10 +68,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void registerPlate() {
         var colors = Arrays.stream(DishColor.values()).map(DishColor::getSerializedName).collect(Collectors.toList());
-        createColorVariants("block/plate/plate_one_plate", "block/plate/plate", colors);
-        createColorVariants("block/plate/plate_two_plates", "block/plate/plate", colors);
-        createColorVariants("block/plate/plate_three_plates", "block/plate/plate", colors);
-        createColorVariants("block/plate/plate_with_cup", "block/plate/plate", colors);
+        createColorVariants("block/plate/plate_one_plate", "block/dish/dish", colors);
+        createColorVariants("block/plate/plate_two_plates", "block/dish/dish", colors);
+        createColorVariants("block/plate/plate_three_plates", "block/dish/dish", colors);
+        createColorVariants("block/plate/plate_with_cup", "block/dish/dish", colors);
 
         simpleBlockItem(BlockInit.PLATE.get(), this.models().getExistingFile(resLoc.withPath("block/plate/plate_one_plate_white")));
 
