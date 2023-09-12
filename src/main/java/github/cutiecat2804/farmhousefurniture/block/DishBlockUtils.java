@@ -65,19 +65,34 @@ public class DishBlockUtils {
         return false;
     }
 
-    public static boolean addCupToPlate(Block block, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand) {
+    public static boolean addCupToPlate(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand) {
         // Damit beim Klicken mit einer Tasse auf den Teller sich der Block ändert
         if (player.getItemInHand(interactionHand).getItem() == ItemInit.CUP.get() && blockState.getValue(PlateBlock.PLATES) == 1 && blockState.getValue(PlateBlock.CUPS) != 1) {
             // updated block state und setzt ihn neu. Wichtig, weil ihr ein anderer Block angezeigt werden soll
             level.setBlockAndUpdate(
                     blockPos,
-                    block.defaultBlockState().setValue(PlateBlock.PLATES, 1)
-                            .setValue(PlateBlock.CUPS, 1)
-                            .setValue(DishBlockUtils.FACING, blockState.getValue(DishBlockUtils.FACING))
+                    blockState.setValue(PlateBlock.CUPS, 1)
             );
 
             if (!player.isCreative()) {
                 player.getItemInHand(interactionHand).setCount(player.getItemInHand(interactionHand).getCount() - 1);
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean removeCupToPlate(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand) {
+        if (player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(PlateBlock.PLATES) == 1 && blockState.getValue(PlateBlock.CUPS) == 1) {
+            level.setBlockAndUpdate(
+                    blockPos,
+                    blockState.setValue(PlateBlock.CUPS, 0)
+            );
+
+            if (!player.isCreative()) {
+                player.addItem(ItemInit.CUP.get().getDefaultInstance());
             }
 
             return true;

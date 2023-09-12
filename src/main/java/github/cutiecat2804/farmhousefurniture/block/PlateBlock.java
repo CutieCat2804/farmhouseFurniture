@@ -58,7 +58,11 @@ public class PlateBlock extends Block {
 
 
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
-        if (DishBlockUtils.addCupToPlate(this, blockState, level, blockPos, player, interactionHand)) {
+        if (DishBlockUtils.addCupToPlate(blockState, level, blockPos, player, interactionHand)) {
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
+        if (DishBlockUtils.removeCupToPlate(blockState, level, blockPos, player, interactionHand)) {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 

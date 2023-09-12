@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "EEE",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "farmhousefurniture:plate",
+    "count": 4
+  }
+}
