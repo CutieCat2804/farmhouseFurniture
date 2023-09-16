@@ -1,6 +1,7 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
 import github.cutiecat2804.farmhousefurniture.enums.DishColor;
+import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -66,7 +67,7 @@ public class PlateBlock extends Block {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        if (DishBlockUtils.removeDishWithShift(this, PLATES, blockState, level, blockPos, player, interactionHand)) {
+        if (DishBlockUtils.removeDishWithShift(ItemInit.PLATE.get().getDefaultInstance(), PLATES, blockState, level, blockPos, player, interactionHand)) {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 

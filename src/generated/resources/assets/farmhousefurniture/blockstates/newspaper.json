@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=east,newspapers=1": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_one_newspaper",
+      "y": 90
+    },
+    "facing=east,newspapers=2": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_two_newspapers",
+      "y": 90
+    },
+    "facing=east,newspapers=3": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_three_newspapers",
+      "y": 90
+    },
+    "facing=north,newspapers=1": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_one_newspaper"
+    },
+    "facing=north,newspapers=2": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_two_newspapers"
+    },
+    "facing=north,newspapers=3": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_three_newspapers"
+    },
+    "facing=south,newspapers=1": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_one_newspaper",
+      "y": 180
+    },
+    "facing=south,newspapers=2": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_two_newspapers",
+      "y": 180
+    },
+    "facing=south,newspapers=3": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_three_newspapers",
+      "y": 180
+    },
+    "facing=west,newspapers=1": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_one_newspaper",
+      "y": 270
+    },
+    "facing=west,newspapers=2": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_two_newspapers",
+      "y": 270
+    },
+    "facing=west,newspapers=3": {
+      "model": "farmhousefurniture:block/newspaper/newspaper_three_newspapers",
+      "y": 270
+    }
+  }
+}

@@ -39,4 +39,10 @@ public class ItemInit {
 
     public static final RegistryObject<BlockItem> PLATE = addToTab(ITEMS.register("plate",
             () -> new BlockItem(BlockInit.PLATE.get(), new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> NEWSPAPER = addToTab(ITEMS.register("newspaper",
+            () -> new BlockItem(BlockInit.NEWSPAPER.get(), new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> NEWSPAPER_STAND = addToTab(ITEMS.register("newspaper_stand",
+            () -> new BlockItem(BlockInit.NEWSPAPER_STAND.get(), new Item.Properties())));
 }

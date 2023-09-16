@@ -2,6 +2,8 @@ package github.cutiecat2804.farmhousefurniture.init;
 
 import github.cutiecat2804.farmhousefurniture.block.CupBlock;
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
+import github.cutiecat2804.farmhousefurniture.block.NewspaperBlock;
+import github.cutiecat2804.farmhousefurniture.block.NewspaperStandBlock;
 import github.cutiecat2804.farmhousefurniture.block.PlateBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -39,5 +41,20 @@ public class BlockInit {
                     .noOcclusion()
                     .instabreak()
                     .pushReaction(PushReaction.DESTROY)
+            ));
+
+    public static final RegistryObject<Block> NEWSPAPER = BLOCKS.register("newspaper",
+            () -> new NewspaperBlock(BlockBehaviour.Properties.of()
+                    .isViewBlocking((blockState, blockGetter, blockPos) -> false)
+                    .noOcclusion()
+                    .instabreak()
+                    .pushReaction(PushReaction.DESTROY)
+            ));
+
+    public static final RegistryObject<Block> NEWSPAPER_STAND = BLOCKS.register("newspaper_stand",
+            () -> new NewspaperStandBlock(BlockBehaviour.Properties.of()
+                    .isViewBlocking((blockState, blockGetter, blockPos) -> false)
+                    .noOcclusion()
+                    .strength(1.0f, 17f)
             ));
 }

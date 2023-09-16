@@ -5,6 +5,7 @@ import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -33,20 +34,17 @@ public class DishBlockUtils {
         }
     }
 
-    public static boolean removeDishWithShift(Block block, IntegerProperty property, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand) {
+    public static boolean removeDishWithShift(ItemStack itemStack, IntegerProperty property, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand) {
         // Entfernt mit Shiftklick eine Tasse vom Block
         if (player.isShiftKeyDown() && player.getItemInHand(interactionHand).isEmpty() && blockState.getValue(property) > 1) {
             level.setBlockAndUpdate(
                     blockPos,
-                    block.defaultBlockState()
-                            .setValue(property, blockState.getValue(property) - 1)
-                            .setValue(FACING, blockState.getValue(FACING))
-                            .setValue(COLOR, blockState.getValue(COLOR))
+                    blockState.setValue(property, blockState.getValue(property) - 1)
             );
 
             // Gibt Spieler in Survival Tasse wieder ins Inventar
             if (!player.isCreative()) {
-                player.addItem(ItemInit.CUP.get().getDefaultInstance());
+                player.addItem(itemStack);
             }
             return true;
         }

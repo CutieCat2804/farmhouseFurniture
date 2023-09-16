@@ -4,5 +4,7 @@
   "itemGroup.example_tab": "Example Tab",
   "block.farmhousefurniture.cup": "Cup",
   "block.farmhousefurniture.plate": "Plate",
-  "item.farmhousefurniture.paintbrush": "Paintbrush"
+  "item.farmhousefurniture.paintbrush": "Paintbrush",
+  "block.farmhousefurniture.newspaper": "Newspaper",
+  "block.farmhousefurniture.newspaper_stand": "Newspaper Stand"
 }

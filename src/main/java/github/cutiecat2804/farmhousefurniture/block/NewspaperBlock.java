@@ -1,6 +1,5 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
-import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -21,68 +20,53 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class CupBlock extends Block {
+public class NewspaperBlock extends Block {
     // (position front (z), position bottom (y), position left (x), position back (z), position top (y), position right (X))
-    private static final VoxelShape SHAPE_ONE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 3.0D, 10.0D);
-    private static final VoxelShape SHAPE_TWO = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 6.0D, 10.0D);
-    private static final VoxelShape SHAPE_THREE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D);
+    private static final VoxelShape SHAPE_ONE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 1.0D, 13.0D);
+    private static final VoxelShape SHAPE_TWO = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 2.0D, 13.0D);
+    private static final VoxelShape SHAPE_THREE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 3.0D, 13.0D);
 
-    // Setzt Range wie viele Cups auf einem Block sein dürfen
-    public static final IntegerProperty CUPS = IntegerProperty.create("cups", 1, 3);
+    public static final IntegerProperty NEWSPAPERS = IntegerProperty.create("newspapers", 1, 3);
 
-    public CupBlock(BlockBehaviour.Properties properties) {
+    public NewspaperBlock(BlockBehaviour.Properties properties) {
         super(properties);
-        // Setzt den default BlockState
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(CUPS, 1)
-                .setValue(DishBlockUtils.FACING, Direction.NORTH)
-                .setValue(DishBlockUtils.COLOR, DishColor.WHITE));
+                .setValue(NEWSPAPERS, 1)
+                .setValue(DishBlockUtils.FACING, Direction.NORTH));
     }
 
-    // Kann nicht in die Luft gesetzt werden, wird von Wasser zerstört
     public boolean canSurvive(@NotNull BlockState blockState, @NotNull LevelReader levelReader, BlockPos blockPos) {
         return Block.canSupportCenter(levelReader, blockPos.below(), Direction.UP);
     }
 
-    // Wird aufgerufen, wenn ein neuer Block zu dem existierenden hinzugefügt wird.
-    // Checkt, ob es der richtige Klick und Block ist und ob die Anzahl kleiner 3 ist
-    // bestimmt darüber, ob der Block noch ersetzt werden kann
     public boolean canBeReplaced(@NotNull BlockState blockState, BlockPlaceContext blockPlaceContext) {
         return !blockPlaceContext.isSecondaryUseActive()
                 && blockPlaceContext.getItemInHand().getItem() == this.asItem()
-                && blockState.getValue(CUPS) < 3
+                && blockState.getValue(NEWSPAPERS) < 3
                 || super.canBeReplaced(blockState, blockPlaceContext);
     }
 
-    // Wird aufgerufen, wenn ein neuer Block zu dem existierenden hinzugefügt wird
     public BlockState getStateForPlacement(@NotNull BlockPlaceContext blockPlaceContext) {
-        return DishBlockUtils.getStateForPlacement(blockPlaceContext, this, CUPS);
+        return DishBlockUtils.getStateForPlacement(blockPlaceContext, this, NEWSPAPERS);
     }
 
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
-        if (DishBlockUtils.removeDishWithShift(ItemInit.CUP.get().getDefaultInstance(), CUPS, blockState, level, blockPos, player, interactionHand)) {
-            return InteractionResult.sidedSuccess(level.isClientSide);
-        }
-
-        if (DishBlockUtils.changeColor(blockState, level, blockPos, player, interactionHand)) {
+        if (DishBlockUtils.removeDishWithShift(ItemInit.NEWSPAPER.get().getDefaultInstance(), NEWSPAPERS, blockState, level, blockPos, player, interactionHand)) {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
         return InteractionResult.PASS;
     }
 
-    //  Setzt den Shape je nach Anzahl der Cups
     public @NotNull VoxelShape getShape(BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
-        return switch (blockState.getValue(CUPS)) {
+        return switch (blockState.getValue(NEWSPAPERS)) {
             default -> SHAPE_ONE;
             case 2 -> SHAPE_TWO;
             case 3 -> SHAPE_THREE;
         };
     }
 
-    // Setzt den BlockState
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
-        blockBlockStateBuilder.add(CUPS, DishBlockUtils.FACING, DishBlockUtils.COLOR);
+        blockBlockStateBuilder.add(NEWSPAPERS, DishBlockUtils.FACING);
     }
-
 }

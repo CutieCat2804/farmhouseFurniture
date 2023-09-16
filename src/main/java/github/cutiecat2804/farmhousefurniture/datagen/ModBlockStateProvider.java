@@ -3,6 +3,7 @@ package github.cutiecat2804.farmhousefurniture.datagen;
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import github.cutiecat2804.farmhousefurniture.block.CupBlock;
 import github.cutiecat2804.farmhousefurniture.block.DishBlockUtils;
+import github.cutiecat2804.farmhousefurniture.block.NewspaperBlock;
 import github.cutiecat2804.farmhousefurniture.block.PlateBlock;
 import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
@@ -31,12 +32,46 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(BlockInit.EXAMPLE_BLOCK);
         registerCup();
         registerPlate();
+        registerNewspaper();
+        registerNewspaperStand();
     }
 
     // Erstellt simple Models und BlockStates
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
+    }
+
+    private void registerNewspaperStand() {
+        simpleBlockItem(BlockInit.NEWSPAPER_STAND.get(), this.models().getExistingFile(resLoc.withPath("block/newspaper/newspaper_stand")));
+
+        this.getVariantBuilder(BlockInit.NEWSPAPER_STAND.get())
+                .forAllStates(state ->
+                        ConfiguredModel.builder()
+                                .modelFile(this.models().getExistingFile(resLoc.withPath("block/newspaper/newspaper_stand")))
+                                .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 180) % 360)
+                                .build()
+                );
+    }
+
+    private void registerNewspaper() {
+        simpleBlockItem(BlockInit.NEWSPAPER.get(), this.models().getExistingFile(resLoc.withPath("block/newspaper/newspaper_one_newspaper")));
+
+        this.getVariantBuilder(BlockInit.NEWSPAPER.get())
+                .forAllStates(state ->
+                        {
+                            String path = switch (state.getValue(NewspaperBlock.NEWSPAPERS)) {
+                                default -> "block/newspaper/newspaper_one_newspaper";
+                                case 2 -> "block/newspaper/newspaper_two_newspapers";
+                                case 3 -> "block/newspaper/newspaper_three_newspapers";
+                            };
+
+                            return ConfiguredModel.builder()
+                                    .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
+                                    .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 180) % 360)
+                                    .build();
+                        }
+                );
     }
 
     private void registerCup() {
@@ -63,6 +98,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                                     .build();
                         }
                 );
+
 
     }
 

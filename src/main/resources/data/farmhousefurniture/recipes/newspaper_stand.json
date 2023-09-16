@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "SNS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "tag": "minecraft:slabs"
+    },
+    "N": {
+      "item": "farmhousefurniture:newspaper"
+    }
+  },
+  "result": {
+    "item": "farmhousefurniture:newspaper_stand"
+  }
+}
