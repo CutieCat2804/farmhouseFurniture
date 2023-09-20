@@ -1,0 +1,173 @@
+package github.cutiecat2804.farmhousefurniture.datagen.blockstateprovider;
+
+import github.cutiecat2804.farmhousefurniture.block.*;
+import github.cutiecat2804.farmhousefurniture.init.BlockInit;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+
+public class TableBlockStateProvider {
+    public static void registerTable(BlockStateProvider blockStateProvider, ResourceLocation resLoc) {
+        blockStateProvider.simpleBlockItem(BlockInit.GREY_WOOD_TABLE.get(), blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table")));
+
+        blockStateProvider.getMultipartBuilder(BlockInit.GREY_WOOD_TABLE.get())
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_top")))
+                .addModel()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_leg")))
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.NORTH, false)
+                .condition(TableBlock.EAST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_leg")))
+                .rotationY(90)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.SOUTH, false)
+                .condition(TableBlock.EAST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_leg")))
+                .rotationY(180)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.SOUTH, false)
+                .condition(TableBlock.WEST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_leg")))
+                .rotationY(270)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.NORTH, false)
+                .condition(TableBlock.WEST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_side")))
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.NORTH, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_side")))
+                .rotationY(90)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.EAST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_side")))
+                .rotationY(180)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.SOUTH, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_side")))
+                .rotationY(270)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.WEST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner")))
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.EAST, true)
+                .condition(TableBlock.NORTH, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner")))
+                .rotationY(90)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.SOUTH, true)
+                .condition(TableBlock.EAST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner")))
+                .rotationY(180)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.WEST, true)
+                .condition(TableBlock.SOUTH, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner")))
+                .rotationY(270)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.NORTH, true)
+                .condition(TableBlock.WEST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner2")))
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.NORTH, true)
+                .condition(TableBlock.EAST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner2")))
+                .rotationY(90)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.EAST, true)
+                .condition(TableBlock.SOUTH, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner2")))
+                .rotationY(180)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.SOUTH, true)
+                .condition(TableBlock.WEST, false)
+                .end()
+                .end()
+
+                .part()
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner2")))
+                .rotationY(270)
+                .addModel()
+                .nestedGroup()
+                .condition(TableBlock.WEST, true)
+                .condition(TableBlock.NORTH, false)
+                .end()
+                .end();
+
+    }
+
+
+}

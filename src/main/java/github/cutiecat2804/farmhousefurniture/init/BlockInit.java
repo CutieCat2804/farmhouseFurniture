@@ -1,11 +1,9 @@
 package github.cutiecat2804.farmhousefurniture.init;
 
-import github.cutiecat2804.farmhousefurniture.block.CupBlock;
+import github.cutiecat2804.farmhousefurniture.block.*;
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
-import github.cutiecat2804.farmhousefurniture.block.NewspaperBlock;
-import github.cutiecat2804.farmhousefurniture.block.NewspaperStandBlock;
-import github.cutiecat2804.farmhousefurniture.block.PlateBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -57,4 +55,7 @@ public class BlockInit {
                     .noOcclusion()
                     .strength(1.0f, 17f)
             ));
+
+    public static final RegistryObject<Block> GREY_WOOD_TABLE = BLOCKS.register("grey_wood_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 }

@@ -1,10 +1,8 @@
 package github.cutiecat2804.farmhousefurniture.datagen;
 
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
-import github.cutiecat2804.farmhousefurniture.block.CupBlock;
-import github.cutiecat2804.farmhousefurniture.block.DishBlockUtils;
-import github.cutiecat2804.farmhousefurniture.block.NewspaperBlock;
-import github.cutiecat2804.farmhousefurniture.block.PlateBlock;
+import github.cutiecat2804.farmhousefurniture.block.*;
+import github.cutiecat2804.farmhousefurniture.datagen.blockstateprovider.TableBlockStateProvider;
 import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
 import net.minecraft.data.PackOutput;
@@ -34,6 +32,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerPlate();
         registerNewspaper();
         registerNewspaperStand();
+        TableBlockStateProvider.registerTable(this, resLoc);
     }
 
     // Erstellt simple Models und BlockStates

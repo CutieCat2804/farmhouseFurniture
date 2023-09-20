@@ -1,0 +1,225 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_top"
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_leg"
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "false",
+            "north": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_leg",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "false",
+            "south": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_leg",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "south": "false",
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_leg",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "north": "false",
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_side"
+      },
+      "when": {
+        "AND": [
+          {
+            "north": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_side",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_side",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "south": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_side",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner"
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "true",
+            "north": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "false",
+            "south": "true"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "south": "false",
+            "west": "true"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "north": "true",
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner2"
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "false",
+            "north": "true"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner2",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "true",
+            "south": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner2",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "south": "true",
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner2",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "north": "false",
+            "west": "true"
+          }
+        ]
+      }
+    }
+  ]
+}
