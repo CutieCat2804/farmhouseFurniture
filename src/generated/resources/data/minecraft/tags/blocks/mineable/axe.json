@@ -1,5 +1,9 @@
 {
   "values": [
-    "farmhousefurniture:newspaper_stand"
+    "farmhousefurniture:newspaper_stand",
+    "farmhousefurniture:blue_wood_table",
+    "farmhousefurniture:oak_wood_table",
+    "farmhousefurniture:dark_wood_table",
+    "farmhousefurniture:grey_wood_table"
   ]
 }

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OOO",
+    "W W",
+    "W W"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:stripped_dark_oak_log"
+    },
+    "W": {
+      "item": "minecraft:grey_concrete"
+    }
+  },
+  "result": {
+    "item": "farmhousefurniture:dark_wood_table",
+    "count": 2
+  }
+}
