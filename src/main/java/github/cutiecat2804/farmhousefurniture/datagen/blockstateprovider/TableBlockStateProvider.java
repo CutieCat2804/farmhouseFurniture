@@ -1,22 +1,28 @@
 package github.cutiecat2804.farmhousefurniture.datagen.blockstateprovider;
 
 import github.cutiecat2804.farmhousefurniture.block.*;
-import github.cutiecat2804.farmhousefurniture.init.BlockInit;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 
 public class TableBlockStateProvider {
-    public static void registerTable(BlockStateProvider blockStateProvider, ResourceLocation resLoc) {
-        blockStateProvider.simpleBlockItem(BlockInit.GREY_WOOD_TABLE.get(), blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table")));
+    public static void registerTable(BlockStateProvider blockStateProvider, ResourceLocation resLoc, Block block, String modelName) {
+        blockStateProvider.simpleBlockItem(block, blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/" + modelName + "/" + modelName)));
 
-        blockStateProvider.getMultipartBuilder(BlockInit.GREY_WOOD_TABLE.get())
+        String pathTop = "block/table/" + modelName + "/" + modelName + "_top";
+        String pathLeg = "block/table/" + modelName + "/" + modelName + "_leg";
+        String pathSide = "block/table/" + modelName + "/" + modelName + "_side";
+        String pathCorner1 = "block/table/" + modelName + "/" + modelName + "_corner1";
+        String pathCorner2 = "block/table/" + modelName + "/" + modelName + "_corner2";
+
+        blockStateProvider.getMultipartBuilder(block)
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_top")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathTop)))
                 .addModel()
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_leg")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathLeg)))
                 .addModel()
                 .nestedGroup()
                 .condition(TableBlock.NORTH, false)
@@ -25,7 +31,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_leg")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathLeg)))
                 .rotationY(90)
                 .addModel()
                 .nestedGroup()
@@ -35,7 +41,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_leg")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathLeg)))
                 .rotationY(180)
                 .addModel()
                 .nestedGroup()
@@ -45,7 +51,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_leg")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathLeg)))
                 .rotationY(270)
                 .addModel()
                 .nestedGroup()
@@ -55,7 +61,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_side")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathSide)))
                 .addModel()
                 .nestedGroup()
                 .condition(TableBlock.NORTH, false)
@@ -63,7 +69,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_side")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathSide)))
                 .rotationY(90)
                 .addModel()
                 .nestedGroup()
@@ -72,7 +78,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_side")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathSide)))
                 .rotationY(180)
                 .addModel()
                 .nestedGroup()
@@ -81,7 +87,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_side")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathSide)))
                 .rotationY(270)
                 .addModel()
                 .nestedGroup()
@@ -90,7 +96,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathCorner1)))
                 .addModel()
                 .nestedGroup()
                 .condition(TableBlock.EAST, true)
@@ -99,7 +105,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathCorner1)))
                 .rotationY(90)
                 .addModel()
                 .nestedGroup()
@@ -109,7 +115,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathCorner1)))
                 .rotationY(180)
                 .addModel()
                 .nestedGroup()
@@ -119,7 +125,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathCorner1)))
                 .rotationY(270)
                 .addModel()
                 .nestedGroup()
@@ -129,7 +135,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner2")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathCorner2)))
                 .addModel()
                 .nestedGroup()
                 .condition(TableBlock.NORTH, true)
@@ -138,7 +144,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner2")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathCorner2)))
                 .rotationY(90)
                 .addModel()
                 .nestedGroup()
@@ -148,7 +154,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner2")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathCorner2)))
                 .rotationY(180)
                 .addModel()
                 .nestedGroup()
@@ -158,7 +164,7 @@ public class TableBlockStateProvider {
                 .end()
 
                 .part()
-                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath("block/table/grey_wood_table/grey_wood_table_corner2")))
+                .modelFile(blockStateProvider.models().getExistingFile(resLoc.withPath(pathCorner2)))
                 .rotationY(270)
                 .addModel()
                 .nestedGroup()

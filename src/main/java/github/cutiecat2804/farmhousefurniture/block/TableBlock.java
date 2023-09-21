@@ -22,13 +22,18 @@ public class TableBlock extends Block {
     public static final BooleanProperty SOUTH = PipeBlock.SOUTH;
     public static final BooleanProperty WEST = PipeBlock.WEST;
 
-    public TableBlock(Properties properties) {
+    private final Boolean broadTableTop;
+    private final Boolean broadTableLegs;
+
+    public TableBlock(Properties properties, Boolean broadTableTop, Boolean broadTableLegs) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(NORTH, false)
                 .setValue(EAST, false)
                 .setValue(SOUTH, false)
                 .setValue(WEST, false));
+        this.broadTableTop = broadTableTop;
+        this.broadTableLegs = broadTableLegs;
     }
 
     public boolean connectsTo(BlockState blockState) {
@@ -135,20 +140,56 @@ public class TableBlock extends Block {
     public @NotNull VoxelShape getShape(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
         VoxelShape shape = Shapes.empty();
 
+//        Shape für den drei drei Tisch
+//        shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.25, 0.8125, 0.25), BooleanOp.OR);
+//        shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.0625, 0.9375, 0.8125, 0.25), BooleanOp.OR);
+//        shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.75, 0.25, 0.8125, 0.9375), BooleanOp.OR);
+//        shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.9375, 0.8125, 0.9375), BooleanOp.OR);
+//        shape = Shapes.join(shape, Shapes.box(0, 0.8125, 0, 1, 1, 1), BooleanOp.OR);
+
         // Fügt den Shape zusammen je nachdem was die Nachbarblöcke sind
-        shape = Shapes.join(shape, Shapes.box(0, 0.875, 0, 1, 1, 1), BooleanOp.OR);
+        if (this.broadTableTop) {
+            shape = Shapes.join(shape, Shapes.box(0, 0.8125, 0, 1, 1, 1), BooleanOp.OR);
+        } else {
+            shape = Shapes.join(shape, Shapes.box(0, 0.875, 0, 1, 1, 1), BooleanOp.OR);
+        }
 
         if (!blockState.getValue(SOUTH) && !blockState.getValue(EAST)) {
-            shape = Shapes.join(shape, Shapes.box(0.8125, 0, 0.8125, 0.9375, 0.875, 0.9375), BooleanOp.OR);
+            if (this.broadTableLegs) {
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.9375, 0.8125, 0.9375), BooleanOp.OR);
+            } else if (this.broadTableTop) {
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.9375, 0.875, 0.9375), BooleanOp.OR);
+            } else {
+                shape = Shapes.join(shape, Shapes.box(0.8125, 0, 0.8125, 0.9375, 0.875, 0.9375), BooleanOp.OR);
+
+            }
         }
         if (!blockState.getValue(SOUTH) && !blockState.getValue(WEST)) {
-            shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.8125, 0.1875, 0.875, 0.9375), BooleanOp.OR);
+            if (this.broadTableLegs) {
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.75, 0.25, 0.8125, 0.9375), BooleanOp.OR);
+            } else if (this.broadTableTop) {
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.8125, 0.1875, 0.8125, 0.9375), BooleanOp.OR);
+            }  else {
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.8125, 0.1875, 0.875, 0.9375), BooleanOp.OR);
+            }
         }
         if (!blockState.getValue(NORTH) && !blockState.getValue(EAST)) {
-            shape = Shapes.join(shape, Shapes.box(0.8125, 0, 0.0625, 0.9375, 0.875, 0.1875), BooleanOp.OR);
+            if (this.broadTableLegs) {
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.0625, 0.9375, 0.8125, 0.25), BooleanOp.OR);
+            } else if (this.broadTableTop) {
+                shape = Shapes.join(shape, Shapes.box(0.8125, 0, 0.0625, 0.9375, 0.8125, 0.1875), BooleanOp.OR);
+            } else {
+                shape = Shapes.join(shape, Shapes.box(0.8125, 0, 0.0625, 0.9375, 0.875, 0.1875), BooleanOp.OR);
+            }
         }
         if (!blockState.getValue(NORTH) && !blockState.getValue(WEST)) {
-            shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.1875, 0.875, 0.1875), BooleanOp.OR);
+            if (this.broadTableLegs) {
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.25, 0.8125, 0.25), BooleanOp.OR);
+            } else if (this.broadTableTop) {
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.1875, 0.8125, 0.1875), BooleanOp.OR);
+            }  else {
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.1875, 0.875, 0.1875), BooleanOp.OR);
+            }
         }
 
         return shape;

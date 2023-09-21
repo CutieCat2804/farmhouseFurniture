@@ -2,12 +2,12 @@
   "multipart": [
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_top"
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_top"
       }
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_leg"
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_leg"
       },
       "when": {
         "AND": [
@@ -20,7 +20,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_leg",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_leg",
         "y": 90
       },
       "when": {
@@ -34,7 +34,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_leg",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_leg",
         "y": 180
       },
       "when": {
@@ -48,7 +48,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_leg",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_leg",
         "y": 270
       },
       "when": {
@@ -62,7 +62,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_side"
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_side"
       },
       "when": {
         "AND": [
@@ -74,7 +74,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_side",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_side",
         "y": 90
       },
       "when": {
@@ -87,7 +87,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_side",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_side",
         "y": 180
       },
       "when": {
@@ -100,7 +100,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_side",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_side",
         "y": 270
       },
       "when": {
@@ -113,7 +113,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner1"
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_corner1"
       },
       "when": {
         "AND": [
@@ -126,7 +126,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner1",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_corner1",
         "y": 90
       },
       "when": {
@@ -140,7 +140,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner1",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_corner1",
         "y": 180
       },
       "when": {
@@ -154,7 +154,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner1",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_corner1",
         "y": 270
       },
       "when": {
@@ -168,7 +168,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner2"
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_corner2"
       },
       "when": {
         "AND": [
@@ -181,7 +181,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner2",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_corner2",
         "y": 90
       },
       "when": {
@@ -195,7 +195,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner2",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_corner2",
         "y": 180
       },
       "when": {
@@ -209,7 +209,7 @@
     },
     {
       "apply": {
-        "model": "farmhousefurniture:block/table/grey_wood_table/grey_wood_table_corner2",
+        "model": "farmhousefurniture:block/table/blue_wood_table/blue_wood_table_corner2",
         "y": 270
       },
       "when": {

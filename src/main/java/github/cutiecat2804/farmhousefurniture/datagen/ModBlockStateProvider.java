@@ -32,7 +32,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerPlate();
         registerNewspaper();
         registerNewspaperStand();
-        TableBlockStateProvider.registerTable(this, resLoc);
+        TableBlockStateProvider.registerTable(this, resLoc, BlockInit.GREY_WOOD_TABLE.get(), "grey_wood_table");
+        TableBlockStateProvider.registerTable(this, resLoc, BlockInit.BLUE_WOOD_TABLE.get(), "blue_wood_table");
     }
 
     // Erstellt simple Models und BlockStates
@@ -108,6 +109,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         createColorVariants("block/plate/plate_three_plates", "block/dish/dish", colors);
         createColorVariants("block/plate/plate_with_cup", "block/dish/dish", colors);
 
+        // Erstellt das item
         simpleBlockItem(BlockInit.PLATE.get(), this.models().getExistingFile(resLoc.withPath("block/plate/plate_one_plate_white")));
 
         // Loopt durch alle BlockState Props durch und erstellt daraus den BlockState
