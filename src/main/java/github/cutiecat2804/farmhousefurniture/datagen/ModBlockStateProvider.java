@@ -34,6 +34,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerNewspaperStand();
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.GREY_WOOD_TABLE.get(), "grey_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.BLUE_WOOD_TABLE.get(), "blue_wood_table");
+        TableBlockStateProvider.registerTable(this, resLoc, BlockInit.OAK_WOOD_TABLE.get(), "oak_wood_table");
+        TableBlockStateProvider.registerTable(this, resLoc, BlockInit.DARK_WOOD_TABLE.get(), "dark_wood_table");
     }
 
     // Erstellt simple Models und BlockStates

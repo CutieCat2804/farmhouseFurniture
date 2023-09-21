@@ -51,4 +51,10 @@ public class ItemInit {
 
     public static final RegistryObject<BlockItem> BLUE_WOOD_TABLE = addToTab(ITEMS.register("blue_wood_table",
             () -> new BlockItem(BlockInit.BLUE_WOOD_TABLE.get(), new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> OAK_WOOD_TABLE = addToTab(ITEMS.register("oak_wood_table",
+            () -> new BlockItem(BlockInit.OAK_WOOD_TABLE.get(), new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> DARK_WOOD_TABLE = addToTab(ITEMS.register("dark_wood_table",
+            () -> new BlockItem(BlockInit.DARK_WOOD_TABLE.get(), new Item.Properties())));
 }

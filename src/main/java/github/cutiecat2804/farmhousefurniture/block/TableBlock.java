@@ -140,13 +140,6 @@ public class TableBlock extends Block {
     public @NotNull VoxelShape getShape(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
         VoxelShape shape = Shapes.empty();
 
-//        Shape für den drei drei Tisch
-//        shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.25, 0.8125, 0.25), BooleanOp.OR);
-//        shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.0625, 0.9375, 0.8125, 0.25), BooleanOp.OR);
-//        shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.75, 0.25, 0.8125, 0.9375), BooleanOp.OR);
-//        shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.9375, 0.8125, 0.9375), BooleanOp.OR);
-//        shape = Shapes.join(shape, Shapes.box(0, 0.8125, 0, 1, 1, 1), BooleanOp.OR);
-
         // Fügt den Shape zusammen je nachdem was die Nachbarblöcke sind
         if (this.broadTableTop) {
             shape = Shapes.join(shape, Shapes.box(0, 0.8125, 0, 1, 1, 1), BooleanOp.OR);
@@ -158,7 +151,7 @@ public class TableBlock extends Block {
             if (this.broadTableLegs) {
                 shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.9375, 0.8125, 0.9375), BooleanOp.OR);
             } else if (this.broadTableTop) {
-                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.9375, 0.875, 0.9375), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.8125, 0, 0.8125, 0.9375, 0.8125, 0.9375), BooleanOp.OR);
             } else {
                 shape = Shapes.join(shape, Shapes.box(0.8125, 0, 0.8125, 0.9375, 0.875, 0.9375), BooleanOp.OR);
 

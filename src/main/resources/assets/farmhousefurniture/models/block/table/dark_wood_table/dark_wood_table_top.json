@@ -2,21 +2,21 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "farmhousefurniture:block/table/blue_wood_table",
-		"particle": "farmhousefurniture:block/table/blue_wood_table"
+		"1": "farmhousefurniture:block/table/dark_wood_table",
+		"particle": "farmhousefurniture:block/table/dark_wood_table"
 	},
 	"elements": [
 		{
-			"name": "corner2",
-			"from": [13, 12, 0],
-			"to": [15, 13, 4],
+			"name": "top",
+			"from": [0, 13, 0],
+			"to": [16, 16, 16],
 			"faces": {
-				"north": {"uv": [8, 1.5, 9, 2], "texture": "#0"},
-				"east": {"uv": [8, 1.5, 8.5, 3], "rotation": 90, "texture": "#0"},
-				"south": {"uv": [8, 1.5, 9, 2], "texture": "#0"},
-				"west": {"uv": [8, 1.5, 8.5, 3], "rotation": 90, "texture": "#0"},
-				"up": {"uv": [8, 1.5, 9, 3], "texture": "#0"},
-				"down": {"uv": [8, 1.5, 9, 3], "texture": "#0"}
+				"north": {"uv": [8, 0, 16, 1.5], "texture": "#1"},
+				"east": {"uv": [8, 0, 16, 1.5], "texture": "#1"},
+				"south": {"uv": [8, 0, 16, 1.5], "texture": "#1"},
+				"west": {"uv": [8, 0, 16, 1.5], "texture": "#1"},
+				"up": {"uv": [8, 8, 0, 0], "texture": "#1"},
+				"down": {"uv": [8, 0, 0, 8], "texture": "#1"}
 			}
 		}
 	],
