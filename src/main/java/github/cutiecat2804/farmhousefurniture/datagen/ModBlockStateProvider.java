@@ -36,12 +36,30 @@ public class ModBlockStateProvider extends BlockStateProvider {
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.BLUE_WOOD_TABLE.get(), "blue_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.OAK_WOOD_TABLE.get(), "oak_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.DARK_WOOD_TABLE.get(), "dark_wood_table");
+        registerChair();
+
     }
 
     // Erstellt simple Models und BlockStates
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
+    }
+
+    private void registerChair() {
+        simpleBlockItem(BlockInit.GREY_WOOD_CHAIR.get(), this.models().getExistingFile(resLoc.withPath("block/chair/grey_wood_chair")));
+
+        this.getVariantBuilder(BlockInit.GREY_WOOD_CHAIR.get())
+                .forAllStates(state ->
+                        {
+                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/grey_wood_chair_top" : "block/chair/grey_wood_chair_bottom";
+
+                            return ConfiguredModel.builder()
+                                    .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
+                                    .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 180) % 360)
+                                    .build();
+                        }
+                );
     }
 
     private void registerNewspaperStand() {

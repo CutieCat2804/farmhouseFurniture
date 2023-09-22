@@ -67,4 +67,8 @@ public class BlockInit {
 
     public static final RegistryObject<Block> DARK_WOOD_TABLE = BLOCKS.register("dark_wood_table",
             () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion(), true, false));
+
+
+    public static final RegistryObject<Block> GREY_WOOD_CHAIR = BLOCKS.register("grey_wood_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 }
