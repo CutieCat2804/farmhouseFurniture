@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "farmhousefurniture:block/chair/grey_wood_chair_cushion",
+		"0": "farmhousefurniture:block/chair/grey_wood_chair_cushion_grey",
 		"1": "farmhousefurniture:block/chair/grey_wood_chair",
 		"particle": "farmhousefurniture:block/chair/grey_wood_chair"
 	},

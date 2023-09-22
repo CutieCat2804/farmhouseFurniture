@@ -1,7 +1,13 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
+import github.cutiecat2804.farmhousefurniture.enums.ChairColor;
+import github.cutiecat2804.farmhousefurniture.enums.DishColor;
+import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -14,6 +20,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -23,12 +32,14 @@ import org.jetbrains.annotations.NotNull;
 public class ChairBlock extends Block {
     private static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty IS_TOP = BooleanProperty.create("is_top");
+    public static final EnumProperty<ChairColor> COLOR = EnumProperty.create("color", ChairColor.class);
 
     public ChairBlock(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
-                .setValue(IS_TOP, false));
+                .setValue(IS_TOP, false)
+                .setValue(COLOR, ChairColor.GREY));
     }
 
     @Override
@@ -54,6 +65,28 @@ public class ChairBlock extends Block {
         return this.defaultBlockState().setValue(DishBlockUtils.FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
     }
 
+    @Override
+    public void onPlace(BlockState p_60566_, Level p_60567_, BlockPos p_60568_, BlockState p_60569_, boolean p_60570_) {
+        
+        super.onPlace(p_60566_, p_60567_, p_60568_, p_60569_, p_60570_);
+    }
+
+    @Override
+    public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
+        return levelReader.getBlockState(blockPos.above()).isAir();
+    }
+
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+        if (player.getItemInHand(interactionHand).getItem() == ItemInit.PAINTBRUSH.get()) {
+            level.setBlockAndUpdate(
+                    blockPos,
+                    blockState.setValue(COLOR, ChairColor.values()[((blockState.getValue(COLOR)).ordinal() + 1) % ChairColor.values().length])
+            );
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
+        return InteractionResult.PASS;
+    }
 
     public @NotNull VoxelShape getShape(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
         VoxelShape shape = Shapes.empty();
@@ -79,7 +112,7 @@ public class ChairBlock extends Block {
         if (blockState.getValue(FACING) == Direction.SOUTH) {
             shape = rotateShape(Direction.WEST, blockState.getValue(FACING), shape);
         } else if (blockState.getValue(FACING) == Direction.WEST) {
-            shape = rotateShape(Direction.WEST,blockState.getValue(FACING), shape);
+            shape = rotateShape(Direction.WEST, blockState.getValue(FACING), shape);
         } else if (blockState.getValue(FACING) == Direction.EAST) {
             shape = rotateShape(Direction.SOUTH, blockState.getValue(FACING), shape);
         }
@@ -101,7 +134,7 @@ public class ChairBlock extends Block {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
-        blockBlockStateBuilder.add(FACING, IS_TOP);
+        blockBlockStateBuilder.add(FACING, IS_TOP, COLOR);
     }
 
 }

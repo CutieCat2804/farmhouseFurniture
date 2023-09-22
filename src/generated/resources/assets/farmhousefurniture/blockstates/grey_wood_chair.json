@@ -1,32 +1,122 @@
 {
   "variants": {
-    "facing=east,is_top=false": {
-      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom",
+    "color=beige,facing=east,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_beige",
       "y": 90
     },
-    "facing=east,is_top=true": {
+    "color=beige,facing=east,is_top=true": {
       "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
       "y": 90
     },
-    "facing=north,is_top=false": {
-      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom"
+    "color=beige,facing=north,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_beige"
     },
-    "facing=north,is_top=true": {
+    "color=beige,facing=north,is_top=true": {
       "model": "farmhousefurniture:block/chair/grey_wood_chair_top"
     },
-    "facing=south,is_top=false": {
-      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom",
+    "color=beige,facing=south,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_beige",
       "y": 180
     },
-    "facing=south,is_top=true": {
+    "color=beige,facing=south,is_top=true": {
       "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
       "y": 180
     },
-    "facing=west,is_top=false": {
-      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom",
+    "color=beige,facing=west,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_beige",
       "y": 270
     },
-    "facing=west,is_top=true": {
+    "color=beige,facing=west,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 270
+    },
+    "color=blue,facing=east,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_blue",
+      "y": 90
+    },
+    "color=blue,facing=east,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 90
+    },
+    "color=blue,facing=north,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_blue"
+    },
+    "color=blue,facing=north,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top"
+    },
+    "color=blue,facing=south,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_blue",
+      "y": 180
+    },
+    "color=blue,facing=south,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 180
+    },
+    "color=blue,facing=west,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_blue",
+      "y": 270
+    },
+    "color=blue,facing=west,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 270
+    },
+    "color=green,facing=east,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_green",
+      "y": 90
+    },
+    "color=green,facing=east,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 90
+    },
+    "color=green,facing=north,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_green"
+    },
+    "color=green,facing=north,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top"
+    },
+    "color=green,facing=south,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_green",
+      "y": 180
+    },
+    "color=green,facing=south,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 180
+    },
+    "color=green,facing=west,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_green",
+      "y": 270
+    },
+    "color=green,facing=west,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 270
+    },
+    "color=grey,facing=east,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_grey",
+      "y": 90
+    },
+    "color=grey,facing=east,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 90
+    },
+    "color=grey,facing=north,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_grey"
+    },
+    "color=grey,facing=north,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top"
+    },
+    "color=grey,facing=south,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_grey",
+      "y": 180
+    },
+    "color=grey,facing=south,is_top=true": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
+      "y": 180
+    },
+    "color=grey,facing=west,is_top=false": {
+      "model": "farmhousefurniture:block/chair/grey_wood_chair_bottom_grey",
+      "y": 270
+    },
+    "color=grey,facing=west,is_top=true": {
       "model": "farmhousefurniture:block/chair/grey_wood_chair_top",
       "y": 270
     }

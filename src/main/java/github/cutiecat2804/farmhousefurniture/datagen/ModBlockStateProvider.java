@@ -3,6 +3,7 @@ package github.cutiecat2804.farmhousefurniture.datagen;
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import github.cutiecat2804.farmhousefurniture.block.*;
 import github.cutiecat2804.farmhousefurniture.datagen.blockstateprovider.TableBlockStateProvider;
+import github.cutiecat2804.farmhousefurniture.enums.ChairColor;
 import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
 import net.minecraft.data.PackOutput;
@@ -49,10 +50,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void registerChair() {
         simpleBlockItem(BlockInit.GREY_WOOD_CHAIR.get(), this.models().getExistingFile(resLoc.withPath("block/chair/grey_wood_chair")));
 
+        String[] textureKeys = {"0"};
+
+        var colors = Arrays.stream(ChairColor.values()).map(ChairColor::getSerializedName).collect(Collectors.toList());
+        createColorVariants("block/chair/grey_wood_chair_bottom", "block/chair/grey_wood_chair_cushion", colors, textureKeys);
+
         this.getVariantBuilder(BlockInit.GREY_WOOD_CHAIR.get())
                 .forAllStates(state ->
                         {
-                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/grey_wood_chair_top" : "block/chair/grey_wood_chair_bottom";
+                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/grey_wood_chair_top" : "block/chair/grey_wood_chair_bottom_"  + state.getValue(ChairBlock.COLOR).getSerializedName();
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
@@ -95,10 +101,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerCup() {
+        String[] textureKeys = {"1", "particle"};
+
         var colors = Arrays.stream(DishColor.values()).map(DishColor::getSerializedName).collect(Collectors.toList());
-        createColorVariants("block/cup/cup_one_cup", "block/dish/dish", colors);
-        createColorVariants("block/cup/cup_two_cups", "block/dish/dish", colors);
-        createColorVariants("block/cup/cup_three_cups", "block/dish/dish", colors);
+        createColorVariants("block/cup/cup_one_cup", "block/dish/dish", colors, textureKeys);
+        createColorVariants("block/cup/cup_two_cups", "block/dish/dish", colors, textureKeys);
+        createColorVariants("block/cup/cup_three_cups", "block/dish/dish", colors, textureKeys);
 
         simpleBlockItem(BlockInit.CUP.get(), this.models().getExistingFile(resLoc.withPath("block/cup/cup_one_cup_white")));
 
@@ -123,11 +131,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerPlate() {
+        String[] textureKeys = {"1", "particle"};
+
         var colors = Arrays.stream(DishColor.values()).map(DishColor::getSerializedName).collect(Collectors.toList());
-        createColorVariants("block/plate/plate_one_plate", "block/dish/dish", colors);
-        createColorVariants("block/plate/plate_two_plates", "block/dish/dish", colors);
-        createColorVariants("block/plate/plate_three_plates", "block/dish/dish", colors);
-        createColorVariants("block/plate/plate_with_cup", "block/dish/dish", colors);
+        createColorVariants("block/plate/plate_one_plate", "block/dish/dish", colors, textureKeys);
+        createColorVariants("block/plate/plate_two_plates", "block/dish/dish", colors, textureKeys);
+        createColorVariants("block/plate/plate_three_plates", "block/dish/dish", colors, textureKeys);
+        createColorVariants("block/plate/plate_with_cup", "block/dish/dish", colors, textureKeys);
 
         // Erstellt das item
         simpleBlockItem(BlockInit.PLATE.get(), this.models().getExistingFile(resLoc.withPath("block/plate/plate_one_plate_white")));
@@ -160,14 +170,16 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     // Erstellt für alle definierten Farben ein Model mit der gegebenen Texture
-    private void createColorVariants(String modelPath, String texturePath, List<String> colors) {
+    private void createColorVariants(String modelPath, String texturePath, List<String> colors, String[] textureKeys) {
         var model = this.models().getExistingFile(resLoc.withPath(modelPath));
 
-        for (var color : colors) {
-            this.models().getBuilder(modelPath + "_" + color).parent(model)
-                    .texture("1", FarmhouseFurniture.MODID + ":" + texturePath + "_" + color)
-                    .texture("particle", FarmhouseFurniture.MODID + ":" + texturePath + "_" + color);
+        for (var textureKey : textureKeys) {
+            for (var color : colors) {
+                this.models().getBuilder(modelPath + "_" + color).parent(model)
+                        .texture(textureKey, FarmhouseFurniture.MODID + ":" + texturePath + "_" + color);
+            }
         }
+
 
     }
 }

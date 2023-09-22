@@ -59,5 +59,5 @@ public class ItemInit {
             () -> new BlockItem(BlockInit.DARK_WOOD_TABLE.get(), new Item.Properties())));
 
     public static final RegistryObject<BlockItem> GREY_WOOD_CHAIR = addToTab(ITEMS.register("grey_wood_chair",
-            () -> new BlockItem(BlockInit.GREY_WOOD_CHAIR.get(), new Item.Properties())));
+            () -> new BlockItem(BlockInit.GREY_WOOD_CHAIR.get(), new Item.Properties()))); // TwoBlockHighBlockItem :) Eigenes BlockItem, place Methode überschreiben, if mit above.isAir, wenn nicht dann fail sonst super aufrufen
 }
