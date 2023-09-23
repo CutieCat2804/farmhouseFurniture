@@ -37,6 +37,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.BLUE_WOOD_TABLE.get(), "blue_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.OAK_WOOD_TABLE.get(), "oak_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.DARK_WOOD_TABLE.get(), "dark_wood_table");
+        registerChairWithCushion();
         registerChair();
 
     }
@@ -48,6 +49,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerChair() {
+        simpleBlockItem(BlockInit.BLUE_WOOD_CHAIR.get(), this.models().getExistingFile(resLoc.withPath("block/chair/blue_wood_chair/blue_wood_chair")));
+
+        this.getVariantBuilder(BlockInit.BLUE_WOOD_CHAIR.get())
+                .forAllStates(state ->
+                        {
+                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/blue_wood_chair/blue_wood_chair_top" : "block/chair/blue_wood_chair/blue_wood_chair_bottom";
+
+                            return ConfiguredModel.builder()
+                                    .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
+                                    .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 180) % 360)
+                                    .build();
+                        }
+                );
+    }
+
+    private void registerChairWithCushion() {
         simpleBlockItem(BlockInit.GRAY_WOOD_CHAIR.get(), this.models().getExistingFile(resLoc.withPath("block/chair/gray_wood_chair/gray_wood_chair")));
 
         String[] textureKeys = {"0"};
@@ -58,7 +75,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         this.getVariantBuilder(BlockInit.GRAY_WOOD_CHAIR.get())
                 .forAllStates(state ->
                         {
-                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/gray_wood_chair/gray_wood_chair_top" : "block/chair/gray_wood_chair/gray_wood_chair_bottom_"  + state.getValue(ChairBlock.COLOR).getSerializedName();
+                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/gray_wood_chair/gray_wood_chair_top" : "block/chair/gray_wood_chair/gray_wood_chair_bottom_" + state.getValue(ChairBlock.COLOR).getSerializedName();
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
