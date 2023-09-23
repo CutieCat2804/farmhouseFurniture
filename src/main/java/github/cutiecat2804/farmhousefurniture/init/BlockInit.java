@@ -56,7 +56,7 @@ public class BlockInit {
                     .strength(1.0f, 17f)
             ));
 
-    public static final RegistryObject<Block> GREY_WOOD_TABLE = BLOCKS.register("grey_wood_table",
+    public static final RegistryObject<Block> GRAY_WOOD_TABLE = BLOCKS.register("gray_wood_table",
             () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion(), false, false));
 
     public static final RegistryObject<Block> BLUE_WOOD_TABLE = BLOCKS.register("blue_wood_table",
@@ -69,6 +69,6 @@ public class BlockInit {
             () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion(), true, false));
 
 
-    public static final RegistryObject<Block> GREY_WOOD_CHAIR = BLOCKS.register("grey_wood_chair",
+    public static final RegistryObject<Block> GRAY_WOOD_CHAIR = BLOCKS.register("gray_wood_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 }

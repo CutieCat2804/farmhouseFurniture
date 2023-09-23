@@ -36,7 +36,7 @@ public class ChairBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(IS_TOP, false)
-                .setValue(COLOR, ChairColor.GREY));
+                .setValue(COLOR, ChairColor.GRAY));
     }
 
     @Override

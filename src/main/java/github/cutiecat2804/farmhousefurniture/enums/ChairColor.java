@@ -4,7 +4,7 @@ import net.minecraft.util.StringRepresentable;
 import org.jetbrains.annotations.NotNull;
 
 public enum ChairColor implements StringRepresentable {
-    GREY("grey"),
+    GRAY("gray"),
     GREEN("green"),
     BLUE("blue"),
     BEIGE("beige");

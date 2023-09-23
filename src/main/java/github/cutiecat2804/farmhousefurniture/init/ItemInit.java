@@ -47,8 +47,8 @@ public class ItemInit {
     public static final RegistryObject<BlockItem> NEWSPAPER_STAND = addToTab(ITEMS.register("newspaper_stand",
             () -> new BlockItem(BlockInit.NEWSPAPER_STAND.get(), new Item.Properties())));
 
-    public static final RegistryObject<BlockItem> GREY_WOOD_TABLE = addToTab(ITEMS.register("grey_wood_table",
-            () -> new BlockItem(BlockInit.GREY_WOOD_TABLE.get(), new Item.Properties())));
+    public static final RegistryObject<BlockItem> GRAY_WOOD_TABLE = addToTab(ITEMS.register("gray_wood_table",
+            () -> new BlockItem(BlockInit.GRAY_WOOD_TABLE.get(), new Item.Properties())));
 
     public static final RegistryObject<BlockItem> BLUE_WOOD_TABLE = addToTab(ITEMS.register("blue_wood_table",
             () -> new BlockItem(BlockInit.BLUE_WOOD_TABLE.get(), new Item.Properties())));
@@ -59,6 +59,6 @@ public class ItemInit {
     public static final RegistryObject<BlockItem> DARK_WOOD_TABLE = addToTab(ITEMS.register("dark_wood_table",
             () -> new BlockItem(BlockInit.DARK_WOOD_TABLE.get(), new Item.Properties())));
 
-    public static final RegistryObject<BlockItem> GREY_WOOD_CHAIR = addToTab(ITEMS.register("grey_wood_chair",
-            () -> new TwoBlockHighBlockItem(BlockInit.GREY_WOOD_CHAIR.get(), new Item.Properties()))); // TwoBlockHighBlockItem :) Eigenes BlockItem, place Methode überschreiben, if mit above.isAir, wenn nicht dann fail sonst super aufrufen
+    public static final RegistryObject<BlockItem> GRAY_WOOD_CHAIR = addToTab(ITEMS.register("gray_wood_chair",
+            () -> new TwoBlockHighBlockItem(BlockInit.GRAY_WOOD_CHAIR.get(), new Item.Properties()))); // TwoBlockHighBlockItem :) Eigenes BlockItem, place Methode überschreiben, if mit above.isAir, wenn nicht dann fail sonst super aufrufen
 }

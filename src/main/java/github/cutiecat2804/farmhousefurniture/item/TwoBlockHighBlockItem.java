@@ -14,7 +14,7 @@ public class TwoBlockHighBlockItem extends BlockItem {
 
     @Override
     public @NotNull InteractionResult place(BlockPlaceContext blockPlaceContext) {
-        if (blockPlaceContext.getItemInHand().getItem() == ItemInit.GREY_WOOD_CHAIR.get()) {
+        if (blockPlaceContext.getItemInHand().getItem() == ItemInit.GRAY_WOOD_CHAIR.get()) {
             if (blockPlaceContext.getLevel().getBlockState(blockPlaceContext.getClickedPos().above()).isAir()) {
                 return super.place(blockPlaceContext);
             } else {

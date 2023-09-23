@@ -2,14 +2,14 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"2": "farmhousefurniture:block/table/grey_wood_table",
-		"particle": "farmhousefurniture:block/table/grey_wood_table"
+		"2": "farmhousefurniture:block/table/gray_wood_table",
+		"particle": "farmhousefurniture:block/table/gray_wood_table"
 	},
 	"elements": [
 		{
-			"name": "corner2",
-			"from": [13, 4, 0],
-			"to": [15, 5, 3],
+			"name": "corner",
+			"from": [13, 4, 1],
+			"to": [16, 5, 3],
 			"faces": {
 				"north": {"uv": [8, 1, 8.5, 2.5], "rotation": 90, "texture": "#2"},
 				"east": {"uv": [8, 1, 9, 1.5], "texture": "#2"},

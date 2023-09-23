@@ -2,19 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "OOO",
-    "W W",
-    "W W"
+    "O O",
+    "O O"
   ],
   "key": {
     "O": {
       "item": "minecraft:birch_planks"
-    },
-    "W": {
-      "item": "minecraft:white_concrete"
     }
   },
   "result": {
-    "item": "farmhousefurniture:grey_wood_table",
+    "item": "farmhousefurniture:gray_wood_table",
     "count": 2
   }
 }
