@@ -67,4 +67,7 @@ public class ItemInit {
 
     public static final RegistryObject<BlockItem> OAK_WOOD_CHAIR = addToTab(ITEMS.register("oak_wood_chair",
             () -> new TwoBlockHighBlockItem(BlockInit.OAK_WOOD_CHAIR.get(), new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> DARK_WOOD_CHAIR = addToTab(ITEMS.register("dark_wood_chair",
+            () -> new TwoBlockHighBlockItem(BlockInit.DARK_WOOD_CHAIR.get(), new Item.Properties())));
 }

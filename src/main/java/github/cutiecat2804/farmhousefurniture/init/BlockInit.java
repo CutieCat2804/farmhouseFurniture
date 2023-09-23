@@ -2,12 +2,9 @@ package github.cutiecat2804.farmhousefurniture.init;
 
 import github.cutiecat2804.farmhousefurniture.block.*;
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
-import github.cutiecat2804.farmhousefurniture.block.chair.ChairBlock;
 import github.cutiecat2804.farmhousefurniture.block.chair.DefaultChairBlock;
 import github.cutiecat2804.farmhousefurniture.block.chair.GrayChairBlock;
 import github.cutiecat2804.farmhousefurniture.block.chair.OakChairBlock;
-import github.cutiecat2804.farmhousefurniture.enums.GrayChairColor;
-import github.cutiecat2804.farmhousefurniture.enums.OakChairColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -82,4 +79,7 @@ public class BlockInit {
 
     public static final RegistryObject<Block> OAK_WOOD_CHAIR = BLOCKS.register("oak_wood_chair",
             () -> new OakChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+
+    public static final RegistryObject<Block> DARK_WOOD_CHAIR = BLOCKS.register("dark_wood_chair",
+            () -> new DefaultChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 }

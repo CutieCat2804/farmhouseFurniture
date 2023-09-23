@@ -31,7 +31,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(BlockInit.BLUE_WOOD_CHAIR.get());
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(BlockInit.OAK_WOOD_CHAIR.get());
-//        this.tag(BlockTags.MINEABLE_WITH_AXE).add(BlockInit.DARK_WOOD_CHAIR.get());
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(BlockInit.DARK_WOOD_CHAIR.get());
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(BlockInit.GRAY_WOOD_CHAIR.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(BlockInit.EXAMPLE_BLOCK.get());

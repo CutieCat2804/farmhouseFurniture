@@ -43,6 +43,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerChair(BlockInit.GRAY_WOOD_CHAIR.get(), "gray_wood_chair", true);
         registerChair(BlockInit.BLUE_WOOD_CHAIR.get(), "blue_wood_chair", false);
         registerChair(BlockInit.OAK_WOOD_CHAIR.get(), "oak_wood_chair", true);
+        registerChair(BlockInit.DARK_WOOD_CHAIR.get(), "dark_wood_chair", false);
 
     }
 

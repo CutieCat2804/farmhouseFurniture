@@ -2,7 +2,6 @@ package github.cutiecat2804.farmhousefurniture.block.chair;
 
 import github.cutiecat2804.farmhousefurniture.block.DishBlockUtils;
 import github.cutiecat2804.farmhousefurniture.enums.GrayChairColor;
-import github.cutiecat2804.farmhousefurniture.enums.OakChairColor;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
@@ -161,7 +160,25 @@ public abstract class ChairBlock<T extends Enum<T> & StringRepresentable> extend
             }
         }
 
-
+        if (this == BlockInit.DARK_WOOD_CHAIR.get()) {
+            if (blockState.getValue(IS_TOP)) {
+                shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 0.4375, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 0.4375, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0.4375, 0.75, 0.9375, 0.625, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, -0.3125, 0.8125, 0.75, -0.1875, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.5625, -0.1875, 0.8125, 0.6875, 0.3125, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.3125, -0.1875, 0.8125, 0.4375, 0.3125, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.3125, 0.8125, 0.75, 0.4375, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0, 0.75, 0.75, 0.4375, 0.875), BooleanOp.OR);
+            } else {
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0, 0.1875, 0.3125, 0.4375, 0.3125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 1, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.6875, 0, 0.1875, 0.8125, 0.4375, 0.3125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 1, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0.4375, 0.1875, 0.8125, 0.5625, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.4375, 0.75, 0.75, 1, 0.875), BooleanOp.OR);
+            }
+        }
         if (blockState.getValue(FACING) == Direction.SOUTH) {
             shape = rotateShape(Direction.WEST, blockState.getValue(FACING), shape);
         } else if (blockState.getValue(FACING) == Direction.WEST) {
