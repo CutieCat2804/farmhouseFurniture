@@ -37,8 +37,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.BLUE_WOOD_TABLE.get(), "blue_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.OAK_WOOD_TABLE.get(), "oak_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.DARK_WOOD_TABLE.get(), "dark_wood_table");
-        registerChairWithCushion();
-        registerChair();
+        registerChair(BlockInit.GRAY_WOOD_CHAIR.get(), "gray_wood_chair", true);
+        registerChair(BlockInit.BLUE_WOOD_CHAIR.get(), "blue_wood_chair", false);
 
     }
 
@@ -48,13 +48,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     }
 
-    private void registerChair() {
-        simpleBlockItem(BlockInit.BLUE_WOOD_CHAIR.get(), this.models().getExistingFile(resLoc.withPath("block/chair/blue_wood_chair/blue_wood_chair")));
+    private void registerChair(Block block, String modelName, Boolean hasColors) {
+        simpleBlockItem(block, this.models().getExistingFile(resLoc.withPath("block/chair/" + modelName + "/" + modelName)));
 
-        this.getVariantBuilder(BlockInit.BLUE_WOOD_CHAIR.get())
+        if (hasColors) {
+            String[] textureKeys = {"0"};
+
+            var colors = Arrays.stream(ChairColor.values()).map(ChairColor::getSerializedName).collect(Collectors.toList());
+            createColorVariants("block/chair/" + modelName + "/" + modelName + "_bottom", "block/chair/" + modelName + "/" + modelName + "_cushion", colors, textureKeys);
+
+        }
+
+        this.getVariantBuilder(block)
                 .forAllStates(state ->
                         {
-                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/blue_wood_chair/blue_wood_chair_top" : "block/chair/blue_wood_chair/blue_wood_chair_bottom";
+                            String path = state.getValue(ChairBlock.IS_TOP) ?
+                                    "block/chair/" + modelName + "/" + modelName + "_top" :
+                                    "block/chair/" + modelName + "/" + modelName + "_bottom";
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
