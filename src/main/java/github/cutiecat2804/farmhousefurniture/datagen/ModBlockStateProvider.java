@@ -64,7 +64,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         {
                             String path = state.getValue(ChairBlock.IS_TOP) ?
                                     "block/chair/" + modelName + "/" + modelName + "_top" :
-                                    "block/chair/" + modelName + "/" + modelName + "_bottom";
+                                    (hasColors ?
+                                            "block/chair/" + modelName + "/" + modelName + "_bottom_" + state.getValue(ChairBlock.COLOR).getSerializedName() :
+                                            "block/chair/" + modelName + "/" + modelName + "_bottom");
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))

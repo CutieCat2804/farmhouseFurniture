@@ -30,13 +30,21 @@ public class ChairBlock extends Block {
     private static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty IS_TOP = BooleanProperty.create("is_top");
     public static final EnumProperty<ChairColor> COLOR = EnumProperty.create("color", ChairColor.class);
+    private final Boolean hasColors;
 
-    public ChairBlock(BlockBehaviour.Properties properties) {
+    public ChairBlock(BlockBehaviour.Properties properties, Boolean hasColors) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any()
+        this.hasColors = hasColors;
+
+        BlockState defaultBlockState = this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
-                .setValue(IS_TOP, false)
-                .setValue(COLOR, ChairColor.GRAY));
+                .setValue(IS_TOP, false);
+
+        if (hasColors) {
+            defaultBlockState.setValue(COLOR, ChairColor.GRAY);
+        }
+
+        this.registerDefaultState(defaultBlockState);
     }
 
     @Override
@@ -63,7 +71,7 @@ public class ChairBlock extends Block {
     }
 
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
-        if (player.getItemInHand(interactionHand).getItem() == ItemInit.PAINTBRUSH.get()) {
+        if (this.hasColors && player.getItemInHand(interactionHand).getItem() == ItemInit.PAINTBRUSH.get()) {
             level.setBlockAndUpdate(
                     blockPos,
                     blockState.setValue(COLOR, ChairColor.values()[((blockState.getValue(COLOR)).ordinal() + 1) % ChairColor.values().length])
@@ -120,6 +128,7 @@ public class ChairBlock extends Block {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
+        // Color entfernen für Stühle ohne hasColors
         blockBlockStateBuilder.add(FACING, IS_TOP, COLOR);
     }
 
