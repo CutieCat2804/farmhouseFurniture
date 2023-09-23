@@ -1,0 +1,6 @@
+{
+  "parent": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom",
+  "textures": {
+    "0": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_cushion_orange"
+  }
+}

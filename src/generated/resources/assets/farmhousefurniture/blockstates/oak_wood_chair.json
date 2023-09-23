@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "color=blue,facing=east,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_blue",
+      "y": 90
+    },
+    "color=blue,facing=east,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 90
+    },
+    "color=blue,facing=north,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_blue"
+    },
+    "color=blue,facing=north,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top"
+    },
+    "color=blue,facing=south,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_blue",
+      "y": 180
+    },
+    "color=blue,facing=south,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 180
+    },
+    "color=blue,facing=west,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_blue",
+      "y": 270
+    },
+    "color=blue,facing=west,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 270
+    },
+    "color=orange,facing=east,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_orange",
+      "y": 90
+    },
+    "color=orange,facing=east,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 90
+    },
+    "color=orange,facing=north,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_orange"
+    },
+    "color=orange,facing=north,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top"
+    },
+    "color=orange,facing=south,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_orange",
+      "y": 180
+    },
+    "color=orange,facing=south,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 180
+    },
+    "color=orange,facing=west,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_orange",
+      "y": 270
+    },
+    "color=orange,facing=west,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 270
+    },
+    "color=white,facing=east,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_white",
+      "y": 90
+    },
+    "color=white,facing=east,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 90
+    },
+    "color=white,facing=north,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_white"
+    },
+    "color=white,facing=north,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top"
+    },
+    "color=white,facing=south,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_white",
+      "y": 180
+    },
+    "color=white,facing=south,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 180
+    },
+    "color=white,facing=west,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_white",
+      "y": 270
+    },
+    "color=white,facing=west,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 270
+    },
+    "color=yellow,facing=east,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_yellow",
+      "y": 90
+    },
+    "color=yellow,facing=east,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 90
+    },
+    "color=yellow,facing=north,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_yellow"
+    },
+    "color=yellow,facing=north,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top"
+    },
+    "color=yellow,facing=south,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_yellow",
+      "y": 180
+    },
+    "color=yellow,facing=south,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 180
+    },
+    "color=yellow,facing=west,is_top=false": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_bottom_yellow",
+      "y": 270
+    },
+    "color=yellow,facing=west,is_top=true": {
+      "model": "farmhousefurniture:block/chair/oak_wood_chair/oak_wood_chair_top",
+      "y": 270
+    }
+  }
+}
