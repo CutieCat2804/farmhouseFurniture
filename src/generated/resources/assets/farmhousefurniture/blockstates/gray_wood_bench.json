@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,left=false,right=false": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 90
+    },
+    "facing=east,left=false,right=true": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 90
+    },
+    "facing=east,left=true,right=false": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 90
+    },
+    "facing=east,left=true,right=true": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 90
+    },
+    "facing=north,left=false,right=false": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench"
+    },
+    "facing=north,left=false,right=true": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench"
+    },
+    "facing=north,left=true,right=false": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench"
+    },
+    "facing=north,left=true,right=true": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench"
+    },
+    "facing=south,left=false,right=false": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 180
+    },
+    "facing=south,left=false,right=true": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 180
+    },
+    "facing=south,left=true,right=false": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 180
+    },
+    "facing=south,left=true,right=true": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 180
+    },
+    "facing=west,left=false,right=false": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 270
+    },
+    "facing=west,left=false,right=true": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 270
+    },
+    "facing=west,left=true,right=false": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 270
+    },
+    "facing=west,left=true,right=true": {
+      "model": "farmhousefurniture:block/bench/gray_wood_bench/gray_wood_bench",
+      "y": 270
+    }
+  }
+}

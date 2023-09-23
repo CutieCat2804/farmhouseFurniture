@@ -11,9 +11,11 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -21,6 +23,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 public class NewspaperBlock extends Block {
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+
     // (position front (z), position bottom (y), position left (x), position back (z), position top (y), position right (X))
     private static final VoxelShape SHAPE_ONE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 1.0D, 13.0D);
     private static final VoxelShape SHAPE_TWO = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 2.0D, 13.0D);

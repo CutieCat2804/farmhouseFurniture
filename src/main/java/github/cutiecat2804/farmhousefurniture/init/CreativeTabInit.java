@@ -28,7 +28,7 @@ public class CreativeTabInit {
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = TABS.register("example_tab",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.example_tab"))
-                    .icon(ItemInit.EXAMPLE_ITEM.get()::getDefaultInstance)
+                    .icon(ItemInit.GRAY_WOOD_TABLE.get()::getDefaultInstance)
                     .displayItems((displayParameters, output) -> EXAMPLE_TAB_ITEMS.forEach(itemLike -> output.accept(itemLike.get())))
                     .build()
     );

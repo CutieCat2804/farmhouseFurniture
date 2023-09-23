@@ -2,6 +2,7 @@ package github.cutiecat2804.farmhousefurniture.sit;
 
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import github.cutiecat2804.farmhousefurniture.block.chair.ChairBlock;
+import github.cutiecat2804.farmhousefurniture.block.BenchBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -57,7 +58,7 @@ public class SitHandler {
      * @return true if the given block can be sat one, false otherwise
      */
     private static boolean isValidBlock(Block block) {
-        return block instanceof ChairBlock;
+        return block instanceof ChairBlock || block instanceof BenchBlock;
     }
 
     /**
