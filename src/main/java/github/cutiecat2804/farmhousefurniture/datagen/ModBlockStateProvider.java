@@ -34,14 +34,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerPlate();
         registerNewspaper();
         registerNewspaperStand();
+
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.GRAY_WOOD_TABLE.get(), "gray_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.BLUE_WOOD_TABLE.get(), "blue_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.OAK_WOOD_TABLE.get(), "oak_wood_table");
         TableBlockStateProvider.registerTable(this, resLoc, BlockInit.DARK_WOOD_TABLE.get(), "dark_wood_table");
+
         registerChair(BlockInit.GRAY_WOOD_CHAIR.get(), "gray_wood_chair", true);
         registerChair(BlockInit.BLUE_WOOD_CHAIR.get(), "blue_wood_chair", false);
         registerChair(BlockInit.OAK_WOOD_CHAIR.get(), "oak_wood_chair", true);
         registerChair(BlockInit.DARK_WOOD_CHAIR.get(), "dark_wood_chair", false);
+
+        registerBench(BlockInit.GRAY_WOOD_BENCH.get(), "gray_wood_bench");
 
     }
 
@@ -49,6 +53,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
+    }
+
+    private void registerBench(Block block, String modelName) {
+        simpleBlockItem(block, this.models().getExistingFile(resLoc.withPath("block/bench/" + modelName + "/" + modelName)));
+
+        this.getVariantBuilder(block)
+                .forAllStates(state ->
+                        ConfiguredModel.builder()
+                                .modelFile(this.models().getExistingFile(resLoc.withPath("block/bench/" + modelName + "/" + modelName)))
+                                .rotationY(((int) state.getValue(BenchBlock.FACING).toYRot() + 180) % 360)
+                                .build()
+                );
     }
 
     private void registerChair(Block block, String modelName, Boolean hasColors) {
@@ -64,7 +80,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 colors = Arrays.stream(OakChairColor.values()).map(OakChairColor::getSerializedName).collect(Collectors.toList());
             }
 
-            createColorVariants("block/chair/" + modelName + "/" + modelName + "_bottom", "block/chair/" + modelName + "/" + modelName + "_cushion", colors,  textureKeys);
+            createColorVariants("block/chair/" + modelName + "/" + modelName + "_bottom", "block/chair/" + modelName + "/" + modelName + "_cushion", colors, textureKeys);
 
         }
 
@@ -94,7 +110,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .forAllStates(state ->
                         ConfiguredModel.builder()
                                 .modelFile(this.models().getExistingFile(resLoc.withPath("block/newspaper/newspaper_stand")))
-                                .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 180) % 360)
+                                .rotationY(((int) state.getValue(NewspaperStandBlock.FACING).toYRot() + 180) % 360)
                                 .build()
                 );
     }
@@ -113,7 +129,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
-                                    .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 180) % 360)
+                                    .rotationY(((int) state.getValue(NewspaperBlock.FACING).toYRot() + 180) % 360)
                                     .build();
                         }
                 );
