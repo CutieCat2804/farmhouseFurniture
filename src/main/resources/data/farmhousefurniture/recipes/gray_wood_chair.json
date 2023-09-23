@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "O  ",
+    "OOO",
+    "O O"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:birch_planks"
+    }
+  },
+  "result": {
+    "item": "farmhousefurniture:gray_wood_chair",
+    "count": 2
+  }
+}
