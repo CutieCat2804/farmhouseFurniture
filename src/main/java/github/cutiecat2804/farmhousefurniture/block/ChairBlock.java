@@ -1,6 +1,7 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
 import github.cutiecat2804.farmhousefurniture.enums.ChairColor;
+import github.cutiecat2804.farmhousefurniture.init.BlockInit;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -85,23 +86,47 @@ public class ChairBlock extends Block {
     public @NotNull VoxelShape getShape(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
         VoxelShape shape = Shapes.empty();
 
-        if (blockState.getValue(IS_TOP)) {
-            shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 0.4375, 0.875), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 0.4375, 0.875), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(-0.45625, -0.25, 0.8125, -0.39375, 0.5625, 0.8125), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(1.1, -1, 0.8125, 1.1625, -0.125, 0.8125), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.0625, 0.4375, 0.75, 0.9375, 0.625, 0.875), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.0625, 0.4375, 0.75, 0.9375, 0.625, 0.875), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.25, 0.375, 0.75, 0.75, 0.4375, 0.875), BooleanOp.OR);
-        } else {
-            shape = Shapes.join(shape, Shapes.box(0.1875, 0, 0.1875, 0.3125, 0.4375, 0.3125), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.6875, 0, 0.1875, 0.8125, 0.4375, 0.3125), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.1875, 0.4375, 0.1875, 0.8125, 0.5625, 0.8125), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 1, 0.875), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.25, 0.6875, 0.8125, 0.75, 0.8125, 0.8125), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.25, 0.5625, 0.25, 0.75, 0.625, 0.75), BooleanOp.OR);
-            shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 1, 0.875), BooleanOp.OR);
+        if (this == BlockInit.GRAY_WOOD_CHAIR.get()) {
+            if (blockState.getValue(IS_TOP)) {
+                shape = Shapes.join(shape, Shapes.box(0.25, 0, 0.75, 0.75, 0.375, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 0.4375, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 0.4375, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(-0.45625, -0.25, 0.8125, -0.39375, 0.5625, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(1.1, -1, 0.8125, 1.1625, -0.125, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0.4375, 0.75, 0.9375, 0.625, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.0625, 0.4375, 0.75, 0.9375, 0.625, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.375, 0.75, 0.75, 0.4375, 0.875), BooleanOp.OR);
+            } else {
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0, 0.1875, 0.3125, 0.4375, 0.3125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.6875, 0, 0.1875, 0.8125, 0.4375, 0.3125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0.4375, 0.1875, 0.8125, 0.5625, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 1, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.6875, 0.8125, 0.75, 0.8125, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.5625, 0.25, 0.75, 0.625, 0.75), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 1, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.4375, 0.75, 0.75, 1, 0.875), BooleanOp.OR);
+            }
         }
+        if (this == BlockInit.BLUE_WOOD_CHAIR.get()) {
+            if (blockState.getValue(IS_TOP)) {
+                shape = Shapes.join(shape, Shapes.box(0.25, 0, 0.75, 0.75, 0.3125, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.3125, 0.75, 0.75, 0.5, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.375, 0.5, 0.75, 0.625, 0.5625, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 0.4375, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 0.4375, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, -0.375, 0.8125, 0.75, -0.25, 0.8125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.4375, -0.25, 0.8125, 0.5625, 0.3125, 0.8125), BooleanOp.OR);
+            } else {
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0, 0.1875, 0.3125, 0.4375, 0.3125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 1, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.6875, 0, 0.1875, 0.8125, 0.4375, 0.3125), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 1, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.1875, 0.4375, 0.1875, 0.8125, 0.5625, 0.75), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.4375, 0.75, 0.75, 0.5625, 0.875), BooleanOp.OR);
+                shape = Shapes.join(shape, Shapes.box(0.25, 0.5625, 0.75, 0.75, 1, 0.875), BooleanOp.OR);
+            }
+        }
+
 
         if (blockState.getValue(FACING) == Direction.SOUTH) {
             shape = rotateShape(Direction.WEST, blockState.getValue(FACING), shape);
