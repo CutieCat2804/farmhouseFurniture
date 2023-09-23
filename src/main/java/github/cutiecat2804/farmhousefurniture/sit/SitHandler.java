@@ -38,11 +38,6 @@ public class SitHandler {
     }
 
     @SubscribeEvent
-    public static void onPlaceBlock() {
-
-    }
-
-    @SubscribeEvent
     public static void onBreak(BreakEvent event) {
         if (!event.getLevel().isClientSide()) {
             // BreakEvent gets a World in its constructor, so the cast is safe

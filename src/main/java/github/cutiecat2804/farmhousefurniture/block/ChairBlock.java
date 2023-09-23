@@ -1,7 +1,6 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
 import github.cutiecat2804.farmhousefurniture.enums.ChairColor;
-import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -12,7 +11,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -21,7 +19,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -43,7 +40,7 @@ public class ChairBlock extends Block {
     }
 
     @Override
-    public void destroy(LevelAccessor levelAccessor, BlockPos blockPos, BlockState blockState) {
+    public void destroy(@NotNull LevelAccessor levelAccessor, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         if (!(levelAccessor instanceof Level level)) {
             return;
         }
@@ -63,17 +60,6 @@ public class ChairBlock extends Block {
                         .setValue(IS_TOP, true));
 
         return this.defaultBlockState().setValue(DishBlockUtils.FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
-    }
-
-    @Override
-    public void onPlace(BlockState p_60566_, Level p_60567_, BlockPos p_60568_, BlockState p_60569_, boolean p_60570_) {
-        
-        super.onPlace(p_60566_, p_60567_, p_60568_, p_60569_, p_60570_);
-    }
-
-    @Override
-    public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
-        return levelReader.getBlockState(blockPos.above()).isAir();
     }
 
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
