@@ -1,5 +1,6 @@
-package github.cutiecat2804.farmhousefurniture.block;
+package github.cutiecat2804.farmhousefurniture.block.chair;
 
+import github.cutiecat2804.farmhousefurniture.block.DishBlockUtils;
 import github.cutiecat2804.farmhousefurniture.enums.GrayChairColor;
 import github.cutiecat2804.farmhousefurniture.enums.OakChairColor;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
@@ -29,24 +30,33 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class ChairBlock extends Block {
-    private static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+public abstract class ChairBlock<T extends Enum<T> & StringRepresentable> extends Block {
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty IS_TOP = BooleanProperty.create("is_top");
-    public static final EnumProperty<GrayChairColor> COLOR = EnumProperty.create("color", GrayChairColor.class);
+    public EnumProperty<T> COLOR;
+    private Class<T> enumClass;
     private final Boolean hasColors;
 
-    public ChairBlock(BlockBehaviour.Properties properties, Boolean hasColors) {
+    public ChairBlock(BlockBehaviour.Properties properties) {
         super(properties);
-        this.hasColors = hasColors;
+        this.hasColors = false;
+        this.registerDefaultState((T) null);
+    }
 
+    public ChairBlock(BlockBehaviour.Properties properties, Class<T> enumClass) {
+        super(properties);
+        this.hasColors = true;
+        this.enumClass = enumClass;
+
+    }
+
+    public void registerDefaultState(T defaultColor) {
         BlockState defaultBlockState = this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(IS_TOP, false);
-
-        if (hasColors) {
-            defaultBlockState.setValue(COLOR, GrayChairColor.GRAY);
+        if (defaultColor != null) {
+            defaultBlockState.setValue(this.COLOR, defaultColor);
         }
-
         this.registerDefaultState(defaultBlockState);
     }
 
@@ -77,7 +87,7 @@ public class ChairBlock extends Block {
         if (this.hasColors && player.getItemInHand(interactionHand).getItem() == ItemInit.PAINTBRUSH.get()) {
             level.setBlockAndUpdate(
                     blockPos,
-                    blockState.setValue(COLOR, GrayChairColor.values()[((blockState.getValue(COLOR)).ordinal() + 1) % GrayChairColor.values().length])
+                    blockState.setValue(COLOR, enumClass.getEnumConstants()[((blockState.getValue(COLOR)).ordinal() + 1) % GrayChairColor.values().length])
             );
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
@@ -176,8 +186,5 @@ public class ChairBlock extends Block {
         return buffer[0];
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockBlockStateBuilder) {
-        blockBlockStateBuilder.add(FACING, IS_TOP, COLOR);
-    }
 
 }

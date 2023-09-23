@@ -2,6 +2,7 @@ package github.cutiecat2804.farmhousefurniture.datagen;
 
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
 import github.cutiecat2804.farmhousefurniture.block.*;
+import github.cutiecat2804.farmhousefurniture.block.chair.ChairBlock;
 import github.cutiecat2804.farmhousefurniture.datagen.blockstateprovider.TableBlockStateProvider;
 import github.cutiecat2804.farmhousefurniture.enums.GrayChairColor;
 import github.cutiecat2804.farmhousefurniture.enums.DishColor;
@@ -9,6 +10,7 @@ import github.cutiecat2804.farmhousefurniture.enums.OakChairColor;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -51,6 +53,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerChair(Block block, String modelName, Boolean hasColors) {
+        if (!(block instanceof ChairBlock<?>))
+            return;
+        var chairBlock = (ChairBlock) block;
+
         simpleBlockItem(block, this.models().getExistingFile(resLoc.withPath("block/chair/" + modelName + "/" + modelName)));
 
         if (hasColors) {
@@ -63,7 +69,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 colors = Arrays.stream(OakChairColor.values()).map(OakChairColor::getSerializedName).collect(Collectors.toList());
             }
 
-            createColorVariants("block/chair/" + modelName + "/" + modelName + "_bottom", "block/chair/" + modelName + "/" + modelName + "_cushion", colors,  textureKeys);
+            createColorVariants("block/chair/" + modelName + "/" + modelName + "_bottom", "block/chair/" + modelName + "/" + modelName + "_cushion", colors, textureKeys);
 
         }
 
@@ -73,9 +79,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
                             String path = state.getValue(ChairBlock.IS_TOP) ?
                                     "block/chair/" + modelName + "/" + modelName + "_top" :
                                     (hasColors ?
-                                            "block/chair/" + modelName + "/" + modelName + "_bottom_" + (modelName.contains("gray") ?
-                                                    state.getValue(ChairBlock.COLOR).getSerializedName() :
-                                                    state.getValue(ChairBlock2.COLOR).getSerializedName()) :
+                                            "block/chair/" + modelName + "/" + modelName + "_bottom_" +
+                                                    ((StringRepresentable) state.getValue(chairBlock.COLOR)).getSerializedName() :
                                             "block/chair/" + modelName + "/" + modelName + "_bottom");
 
                             return ConfiguredModel.builder()

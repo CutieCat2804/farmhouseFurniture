@@ -1,7 +1,7 @@
 package github.cutiecat2804.farmhousefurniture.sit;
 
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
-import github.cutiecat2804.farmhousefurniture.block.ChairBlock;
+import github.cutiecat2804.farmhousefurniture.block.chair.ChairBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
