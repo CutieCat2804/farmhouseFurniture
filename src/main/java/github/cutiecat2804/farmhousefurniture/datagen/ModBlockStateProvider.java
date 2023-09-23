@@ -48,17 +48,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerChair() {
-        simpleBlockItem(BlockInit.GRAY_WOOD_CHAIR.get(), this.models().getExistingFile(resLoc.withPath("block/chair/gray_wood_chair")));
+        simpleBlockItem(BlockInit.GRAY_WOOD_CHAIR.get(), this.models().getExistingFile(resLoc.withPath("block/chair/gray_wood_chair/gray_wood_chair")));
 
         String[] textureKeys = {"0"};
 
         var colors = Arrays.stream(ChairColor.values()).map(ChairColor::getSerializedName).collect(Collectors.toList());
-        createColorVariants("block/chair/gray_wood_chair_bottom", "block/chair/gray_wood_chair_cushion", colors, textureKeys);
+        createColorVariants("block/chair/gray_wood_chair/gray_wood_chair_bottom", "block/chair/gray_wood_chair/gray_wood_chair_cushion", colors, textureKeys);
 
         this.getVariantBuilder(BlockInit.GRAY_WOOD_CHAIR.get())
                 .forAllStates(state ->
                         {
-                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/gray_wood_chair_top" : "block/chair/gray_wood_chair_bottom_"  + state.getValue(ChairBlock.COLOR).getSerializedName();
+                            String path = state.getValue(ChairBlock.IS_TOP) ? "block/chair/gray_wood_chair/gray_wood_chair_top" : "block/chair/gray_wood_chair/gray_wood_chair_bottom_"  + state.getValue(ChairBlock.COLOR).getSerializedName();
 
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))

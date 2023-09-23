@@ -1,0 +1,6 @@
+{
+  "parent": "farmhousefurniture:block/chair/gray_wood_chair/gray_wood_chair_bottom",
+  "textures": {
+    "0": "farmhousefurniture:block/chair/gray_wood_chair/gray_wood_chair_cushion_blue"
+  }
+}
