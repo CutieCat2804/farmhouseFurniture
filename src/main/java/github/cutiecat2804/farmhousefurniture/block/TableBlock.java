@@ -36,11 +36,6 @@ public class TableBlock extends Block {
         this.broadTableLegs = broadTableLegs;
     }
 
-    public boolean connectsTo(BlockState blockState) {
-        boolean isSameTable = blockState.is(this);
-        return !isExceptionForConnection(blockState) && isSameTable;
-    }
-
     public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
         Level level = blockPlaceContext.getLevel();
         BlockPos blockPos = blockPlaceContext.getClickedPos();
@@ -84,10 +79,10 @@ public class TableBlock extends Block {
         }
 
         return this.defaultBlockState()
-                .setValue(NORTH, this.connectsTo(blockstateNorth))
-                .setValue(EAST, this.connectsTo(blockstateEast))
-                .setValue(SOUTH, this.connectsTo(blockstateSouth))
-                .setValue(WEST, this.connectsTo(blockstateWest));
+                .setValue(NORTH, blockstateNorth.is(this))
+                .setValue(EAST, blockstateEast.is(this))
+                .setValue(SOUTH, blockstateSouth.is(this))
+                .setValue(WEST, blockstateWest.is(this));
 
     }
 
@@ -162,7 +157,7 @@ public class TableBlock extends Block {
                 shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.75, 0.25, 0.8125, 0.9375), BooleanOp.OR);
             } else if (this.broadTableTop) {
                 shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.8125, 0.1875, 0.8125, 0.9375), BooleanOp.OR);
-            }  else {
+            } else {
                 shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.8125, 0.1875, 0.875, 0.9375), BooleanOp.OR);
             }
         }
@@ -180,7 +175,7 @@ public class TableBlock extends Block {
                 shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.25, 0.8125, 0.25), BooleanOp.OR);
             } else if (this.broadTableTop) {
                 shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.1875, 0.8125, 0.1875), BooleanOp.OR);
-            }  else {
+            } else {
                 shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.1875, 0.875, 0.1875), BooleanOp.OR);
             }
         }

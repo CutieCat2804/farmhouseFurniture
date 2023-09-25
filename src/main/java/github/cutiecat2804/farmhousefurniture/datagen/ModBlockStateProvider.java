@@ -62,10 +62,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         this.getVariantBuilder(block)
                 .forAllStates(state ->
-                        ConfiguredModel.builder()
-                                .modelFile(this.models().getExistingFile(resLoc.withPath("block/bench/" + modelName + "/" + modelName)))
-                                .rotationY(((int) state.getValue(BenchBlock.FACING).toYRot() + 180) % 360)
-                                .build()
+                        {
+                            String path = "block/bench/" + modelName + "/" + modelName;
+
+                            if (state.getValue(BenchBlock.RIGHT) || state.getValue(BenchBlock.LEFT)) {
+                                path = "block/bench/" + modelName + "/" + modelName + "_one_connect";
+                            }
+
+                            if (state.getValue(BenchBlock.RIGHT) && state.getValue(BenchBlock.LEFT)) {
+                                path = "block/bench/" + modelName + "/" + modelName + "_two_connect";
+                            }
+
+                            return ConfiguredModel.builder()
+                                    .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
+                                    .rotationY(((int) state.getValue(BenchBlock.FACING).toYRot() + 180
+                                            + (state.getValue(BenchBlock.RIGHT) ? 180 : 0)) % 360)
+                                    .build();
+                        }
                 );
     }
 

@@ -4,6 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,13 +31,60 @@ public class BenchBlock extends Block {
                 .setValue(RIGHT, false));
     }
 
-    public boolean connectsTo(BlockState blockState) {
-        boolean isSameTable = blockState.is(this);
-        return !isExceptionForConnection(blockState) && isSameTable;
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext blockPlaceContext) {
+        Level level = blockPlaceContext.getLevel();
+        BlockPos blockPos = blockPlaceContext.getClickedPos();
+
+        Direction facing = blockPlaceContext.getHorizontalDirection().getOpposite();
+
+        BlockPos blockPosRight = blockPos.relative(facing.getClockWise());
+        BlockPos blockPosLeft = blockPos.relative(facing.getCounterClockWise());
+
+        updateLeftAndRightBlocks(level, blockPosRight, blockPosLeft, true);
+
+        BlockState blockstateRight = level.getBlockState(blockPosRight);
+        BlockState blockstateLeft = level.getBlockState(blockPosLeft);
+
+
+        return this.defaultBlockState()
+                .setValue(FACING, facing)
+                .setValue(LEFT, blockstateRight.is(this))
+                .setValue(RIGHT, blockstateLeft.is(this));
+
     }
 
-    public BlockState getStateForPlacement(@NotNull BlockPlaceContext blockPlaceContext) {
-        return this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
+    @Override
+    public void destroy(@NotNull LevelAccessor levelAccessor, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+        if (!(levelAccessor instanceof Level level)) {
+            return;
+        }
+
+        Direction facing = blockState.getValue(FACING);
+
+        BlockPos blockPosRight = blockPos.relative(facing.getClockWise());
+        BlockPos blockPosLeft = blockPos.relative(facing.getCounterClockWise());
+
+        updateLeftAndRightBlocks(level, blockPosRight, blockPosLeft, false);
+    }
+
+    private void updateLeftAndRightBlocks(Level level, BlockPos blockPosRight, BlockPos blockPosLeft, boolean setValueToTrue) {
+        BlockState blockstateRight = level.getBlockState(blockPosRight);
+        BlockState blockstateLeft = level.getBlockState(blockPosLeft);
+
+        if (blockstateRight.is(this)) {
+            level.setBlockAndUpdate(
+                    blockPosRight,
+                    blockstateRight.setValue(RIGHT, setValueToTrue)
+            );
+        }
+
+        if (blockstateLeft.is(this)) {
+            level.setBlockAndUpdate(
+                    blockPosLeft,
+                    blockstateLeft.setValue(LEFT, setValueToTrue)
+            );
+
+        }
     }
 
     @Override
@@ -43,9 +92,9 @@ public class BenchBlock extends Block {
         VoxelShape shape = Shapes.empty();
 
         if (blockState.getValue(FACING) == Direction.NORTH || blockState.getValue(FACING) == Direction.SOUTH) {
-            shape = Shapes.box(0, 0.4375, 0.1875, 1, 0.5625, 0.8125);
+            shape = Shapes.box(0, 0, 0.1875, 1, 0.5625, 0.8125);
         } else if (blockState.getValue(FACING) == Direction.EAST || blockState.getValue(FACING) == Direction.WEST) {
-            shape = Shapes.box(0.1875, 0.4375, 0, 0.8125, 0.5625, 1);
+            shape = Shapes.box(0.1875, 0, 0, 0.8125, 0.5625, 1);
         }
 
         return shape;
