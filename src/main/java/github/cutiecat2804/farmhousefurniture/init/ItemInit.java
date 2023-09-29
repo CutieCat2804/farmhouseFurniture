@@ -67,4 +67,8 @@ public class ItemInit {
             () -> new BlockItem(BlockInit.GRAY_WOOD_BENCH.get(), new Item.Properties())));
     public static final RegistryObject<BlockItem> BLUE_WOOD_BENCH = addToTab(ITEMS.register("blue_wood_bench",
             () -> new BlockItem(BlockInit.BLUE_WOOD_BENCH.get(), new Item.Properties())));
+    public static final RegistryObject<BlockItem> OAK_WOOD_BENCH = addToTab(ITEMS.register("oak_wood_bench",
+            () -> new BlockItem(BlockInit.OAK_WOOD_BENCH.get(), new Item.Properties())));
+    public static final RegistryObject<BlockItem> DARK_WOOD_BENCH = addToTab(ITEMS.register("dark_wood_bench",
+            () -> new BlockItem(BlockInit.DARK_WOOD_BENCH.get(), new Item.Properties())));
 }

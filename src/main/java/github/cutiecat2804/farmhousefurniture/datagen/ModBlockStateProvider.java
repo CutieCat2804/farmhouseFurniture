@@ -49,6 +49,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         registerBench(BlockInit.GRAY_WOOD_BENCH.get(), "gray_wood_bench");
         registerBench(BlockInit.BLUE_WOOD_BENCH.get(), "blue_wood_bench");
+        registerBench(BlockInit.OAK_WOOD_BENCH.get(), "oak_wood_bench");
+        registerBench(BlockInit.DARK_WOOD_BENCH.get(), "dark_wood_bench");
 
     }
 

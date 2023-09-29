@@ -79,4 +79,8 @@ public class BlockInit {
             () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final RegistryObject<Block> BLUE_WOOD_BENCH = BLOCKS.register("blue_wood_bench",
             () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+    public static final RegistryObject<Block> OAK_WOOD_BENCH = BLOCKS.register("oak_wood_bench",
+            () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+    public static final RegistryObject<Block> DARK_WOOD_BENCH = BLOCKS.register("dark_wood_bench",
+            () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 }
