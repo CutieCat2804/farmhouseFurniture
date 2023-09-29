@@ -35,7 +35,6 @@ public class BlockInit {
                     .instabreak()
                     .pushReaction(PushReaction.DESTROY)
             ));
-
     public static final RegistryObject<Block> PLATE = BLOCKS.register("plate",
             () -> new PlateBlock(BlockBehaviour.Properties.of()
                     .isViewBlocking((blockState, blockGetter, blockPos) -> false)
@@ -51,7 +50,6 @@ public class BlockInit {
                     .instabreak()
                     .pushReaction(PushReaction.DESTROY)
             ));
-
     public static final RegistryObject<Block> NEWSPAPER_STAND = BLOCKS.register("newspaper_stand",
             () -> new NewspaperStandBlock(BlockBehaviour.Properties.of()
                     .isViewBlocking((blockState, blockGetter, blockPos) -> false)
@@ -61,28 +59,24 @@ public class BlockInit {
 
     public static final RegistryObject<Block> GRAY_WOOD_TABLE = BLOCKS.register("gray_wood_table",
             () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion(), false, false));
-
     public static final RegistryObject<Block> BLUE_WOOD_TABLE = BLOCKS.register("blue_wood_table",
             () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion(), true, true));
-
     public static final RegistryObject<Block> OAK_WOOD_TABLE = BLOCKS.register("oak_wood_table",
             () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion(), true, true));
-
     public static final RegistryObject<Block> DARK_WOOD_TABLE = BLOCKS.register("dark_wood_table",
             () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion(), true, false));
 
     public static final RegistryObject<Block> GRAY_WOOD_CHAIR = BLOCKS.register("gray_wood_chair",
             () -> new GrayChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
-
     public static final RegistryObject<Block> BLUE_WOOD_CHAIR = BLOCKS.register("blue_wood_chair",
             () -> new DefaultChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
-
     public static final RegistryObject<Block> OAK_WOOD_CHAIR = BLOCKS.register("oak_wood_chair",
             () -> new OakChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
-
     public static final RegistryObject<Block> DARK_WOOD_CHAIR = BLOCKS.register("dark_wood_chair",
             () -> new DefaultChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 
     public static final RegistryObject<Block> GRAY_WOOD_BENCH = BLOCKS.register("gray_wood_bench",
+            () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+    public static final RegistryObject<Block> BLUE_WOOD_BENCH = BLOCKS.register("blue_wood_bench",
             () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 }

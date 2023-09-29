@@ -48,6 +48,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerChair(BlockInit.DARK_WOOD_CHAIR.get(), "dark_wood_chair", false);
 
         registerBench(BlockInit.GRAY_WOOD_BENCH.get(), "gray_wood_bench");
+        registerBench(BlockInit.BLUE_WOOD_BENCH.get(), "blue_wood_bench");
 
     }
 
@@ -65,18 +66,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         {
                             String path = "block/bench/" + modelName + "/" + modelName;
 
-                            if (state.getValue(BenchBlock.RIGHT) || state.getValue(BenchBlock.LEFT)) {
-                                path = "block/bench/" + modelName + "/" + modelName + "_one_connect";
+                            if ((state.getValue(BenchBlock.LEFT) && state.getValue(BenchBlock.FACING).toYRot() < 180) ||
+                                    (state.getValue(BenchBlock.RIGHT) && state.getValue(BenchBlock.FACING).toYRot() >= 180)) {
+                                path = "block/bench/" + modelName + "/" + modelName + "_left_connect";
+                            }
+
+                            if ((state.getValue(BenchBlock.RIGHT) && state.getValue(BenchBlock.FACING).toYRot() < 180) ||
+                                    (state.getValue(BenchBlock.LEFT) && state.getValue(BenchBlock.FACING).toYRot() >= 180)) {
+                                path = "block/bench/" + modelName + "/" + modelName + "_right_connect";
                             }
 
                             if (state.getValue(BenchBlock.RIGHT) && state.getValue(BenchBlock.LEFT)) {
                                 path = "block/bench/" + modelName + "/" + modelName + "_two_connect";
                             }
 
+
                             return ConfiguredModel.builder()
                                     .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
-                                    .rotationY(((int) state.getValue(BenchBlock.FACING).toYRot() + 180
-                                            + (state.getValue(BenchBlock.RIGHT) ? 180 : 0)) % 360)
+                                    .rotationY(((int) state.getValue(BenchBlock.FACING).toYRot()) % 180)
                                     .build();
                         }
                 );

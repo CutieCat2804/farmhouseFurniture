@@ -37,41 +37,34 @@ public class ItemInit {
 
     public static final RegistryObject<BlockItem> CUP = addToTab(ITEMS.register("cup",
             () -> new BlockItem(BlockInit.CUP.get(), new Item.Properties())));
-
     public static final RegistryObject<BlockItem> PLATE = addToTab(ITEMS.register("plate",
             () -> new BlockItem(BlockInit.PLATE.get(), new Item.Properties())));
 
     public static final RegistryObject<BlockItem> NEWSPAPER = addToTab(ITEMS.register("newspaper",
             () -> new BlockItem(BlockInit.NEWSPAPER.get(), new Item.Properties())));
-
     public static final RegistryObject<BlockItem> NEWSPAPER_STAND = addToTab(ITEMS.register("newspaper_stand",
             () -> new BlockItem(BlockInit.NEWSPAPER_STAND.get(), new Item.Properties())));
 
     public static final RegistryObject<BlockItem> GRAY_WOOD_TABLE = addToTab(ITEMS.register("gray_wood_table",
             () -> new BlockItem(BlockInit.GRAY_WOOD_TABLE.get(), new Item.Properties())));
-
     public static final RegistryObject<BlockItem> BLUE_WOOD_TABLE = addToTab(ITEMS.register("blue_wood_table",
             () -> new BlockItem(BlockInit.BLUE_WOOD_TABLE.get(), new Item.Properties())));
-
     public static final RegistryObject<BlockItem> OAK_WOOD_TABLE = addToTab(ITEMS.register("oak_wood_table",
             () -> new BlockItem(BlockInit.OAK_WOOD_TABLE.get(), new Item.Properties())));
-
     public static final RegistryObject<BlockItem> DARK_WOOD_TABLE = addToTab(ITEMS.register("dark_wood_table",
             () -> new BlockItem(BlockInit.DARK_WOOD_TABLE.get(), new Item.Properties())));
 
     public static final RegistryObject<BlockItem> GRAY_WOOD_CHAIR = addToTab(ITEMS.register("gray_wood_chair",
             () -> new TwoBlockHighBlockItem(BlockInit.GRAY_WOOD_CHAIR.get(), new Item.Properties())));
-
     public static final RegistryObject<BlockItem> BLUE_WOOD_CHAIR = addToTab(ITEMS.register("blue_wood_chair",
             () -> new TwoBlockHighBlockItem(BlockInit.BLUE_WOOD_CHAIR.get(), new Item.Properties())));
-
     public static final RegistryObject<BlockItem> OAK_WOOD_CHAIR = addToTab(ITEMS.register("oak_wood_chair",
             () -> new TwoBlockHighBlockItem(BlockInit.OAK_WOOD_CHAIR.get(), new Item.Properties())));
-
     public static final RegistryObject<BlockItem> DARK_WOOD_CHAIR = addToTab(ITEMS.register("dark_wood_chair",
             () -> new TwoBlockHighBlockItem(BlockInit.DARK_WOOD_CHAIR.get(), new Item.Properties())));
 
     public static final RegistryObject<BlockItem> GRAY_WOOD_BENCH = addToTab(ITEMS.register("gray_wood_bench",
             () -> new BlockItem(BlockInit.GRAY_WOOD_BENCH.get(), new Item.Properties())));
-
+    public static final RegistryObject<BlockItem> BLUE_WOOD_BENCH = addToTab(ITEMS.register("blue_wood_bench",
+            () -> new BlockItem(BlockInit.BLUE_WOOD_BENCH.get(), new Item.Properties())));
 }

@@ -31,16 +31,26 @@ public class BenchBlock extends Block {
                 .setValue(RIGHT, false));
     }
 
+    public boolean connectsTo(BlockState blockState, Direction facing) {
+        boolean isSameBench = blockState.is(this);
+        boolean isSameFacing = isSameBench && (blockState.getValue(FACING) == facing);
+        return !isExceptionForConnection(blockState) && isSameBench && isSameFacing;
+    }
+
     public BlockState getStateForPlacement(@NotNull BlockPlaceContext blockPlaceContext) {
         Level level = blockPlaceContext.getLevel();
         BlockPos blockPos = blockPlaceContext.getClickedPos();
 
-        Direction facing = blockPlaceContext.getHorizontalDirection().getOpposite();
+        Direction facing = switch (blockPlaceContext.getHorizontalDirection().getOpposite()) {
+            default -> Direction.NORTH;
+            case WEST, EAST -> Direction.WEST;
+        };
+
 
         BlockPos blockPosRight = blockPos.relative(facing.getClockWise());
         BlockPos blockPosLeft = blockPos.relative(facing.getCounterClockWise());
 
-        updateLeftAndRightBlocks(level, blockPosRight, blockPosLeft, true);
+        updateLeftAndRightBlocks(level, blockPosRight, blockPosLeft, true, facing);
 
         BlockState blockstateRight = level.getBlockState(blockPosRight);
         BlockState blockstateLeft = level.getBlockState(blockPosLeft);
@@ -48,8 +58,8 @@ public class BenchBlock extends Block {
 
         return this.defaultBlockState()
                 .setValue(FACING, facing)
-                .setValue(LEFT, blockstateRight.is(this))
-                .setValue(RIGHT, blockstateLeft.is(this));
+                .setValue(LEFT, connectsTo(blockstateRight, facing))
+                .setValue(RIGHT, connectsTo(blockstateLeft, facing));
 
     }
 
@@ -64,21 +74,21 @@ public class BenchBlock extends Block {
         BlockPos blockPosRight = blockPos.relative(facing.getClockWise());
         BlockPos blockPosLeft = blockPos.relative(facing.getCounterClockWise());
 
-        updateLeftAndRightBlocks(level, blockPosRight, blockPosLeft, false);
+        updateLeftAndRightBlocks(level, blockPosRight, blockPosLeft, false, facing);
     }
 
-    private void updateLeftAndRightBlocks(Level level, BlockPos blockPosRight, BlockPos blockPosLeft, boolean setValueToTrue) {
+    private void updateLeftAndRightBlocks(Level level, BlockPos blockPosRight, BlockPos blockPosLeft, boolean setValueToTrue, Direction facing) {
         BlockState blockstateRight = level.getBlockState(blockPosRight);
         BlockState blockstateLeft = level.getBlockState(blockPosLeft);
 
-        if (blockstateRight.is(this)) {
+        if (blockstateRight.is(this) && (blockstateRight.getValue(FACING) == facing || blockstateRight.getValue(FACING) == facing.getOpposite())) {
             level.setBlockAndUpdate(
                     blockPosRight,
                     blockstateRight.setValue(RIGHT, setValueToTrue)
             );
         }
 
-        if (blockstateLeft.is(this)) {
+        if (blockstateLeft.is(this) && (blockstateLeft.getValue(FACING) == facing || blockstateLeft.getValue(FACING) == facing.getOpposite())) {
             level.setBlockAndUpdate(
                     blockPosLeft,
                     blockstateLeft.setValue(LEFT, setValueToTrue)
