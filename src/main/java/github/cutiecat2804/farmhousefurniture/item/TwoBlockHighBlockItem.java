@@ -1,6 +1,5 @@
 package github.cutiecat2804.farmhousefurniture.item;
 
-import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -14,7 +13,7 @@ public class TwoBlockHighBlockItem extends BlockItem {
 
     @Override
     public @NotNull InteractionResult place(BlockPlaceContext blockPlaceContext) {
-        if (blockPlaceContext.getItemInHand().getItem() == ItemInit.GRAY_WOOD_CHAIR.get()) {
+        if (blockPlaceContext.getItemInHand().getItem() == this) {
             if (blockPlaceContext.getLevel().getBlockState(blockPlaceContext.getClickedPos().above()).isAir()) {
                 return super.place(blockPlaceContext);
             } else {

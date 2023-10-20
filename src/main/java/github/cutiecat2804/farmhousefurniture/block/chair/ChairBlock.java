@@ -1,9 +1,9 @@
 package github.cutiecat2804.farmhousefurniture.block.chair;
 
-import github.cutiecat2804.farmhousefurniture.block.DishBlockUtils;
 import github.cutiecat2804.farmhousefurniture.enums.GrayChairColor;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
+import github.cutiecat2804.farmhousefurniture.utils.RotateShapeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
@@ -72,13 +72,17 @@ public abstract class ChairBlock<T extends Enum<T> & StringRepresentable> extend
     }
 
     public BlockState getStateForPlacement(@NotNull BlockPlaceContext blockPlaceContext) {
-        blockPlaceContext.getLevel().setBlockAndUpdate(
-                blockPlaceContext.getClickedPos().above(),
+        Level level = blockPlaceContext.getLevel();
+        Direction direction = blockPlaceContext.getHorizontalDirection().getOpposite();
+        BlockPos blockpos = blockPlaceContext.getClickedPos().above();
+
+        level.setBlockAndUpdate(
+                blockpos,
                 this.defaultBlockState()
-                        .setValue(DishBlockUtils.FACING, blockPlaceContext.getHorizontalDirection().getOpposite())
+                        .setValue(FACING, direction)
                         .setValue(IS_TOP, true));
 
-        return this.defaultBlockState().setValue(DishBlockUtils.FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING, direction);
     }
 
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
@@ -178,29 +182,15 @@ public abstract class ChairBlock<T extends Enum<T> & StringRepresentable> extend
                 shape = Shapes.join(shape, Shapes.box(0.25, 0.4375, 0.75, 0.75, 1, 0.875), BooleanOp.OR);
             }
         }
+
         if (blockState.getValue(FACING) == Direction.SOUTH) {
-            shape = rotateShape(Direction.WEST, blockState.getValue(FACING), shape);
+            shape = RotateShapeUtils.rotateShape(Direction.WEST, blockState.getValue(FACING), shape);
         } else if (blockState.getValue(FACING) == Direction.WEST) {
-            shape = rotateShape(Direction.WEST, blockState.getValue(FACING), shape);
+            shape = RotateShapeUtils.rotateShape(Direction.WEST, blockState.getValue(FACING), shape);
         } else if (blockState.getValue(FACING) == Direction.EAST) {
-            shape = rotateShape(Direction.SOUTH, blockState.getValue(FACING), shape);
+            shape = RotateShapeUtils.rotateShape(Direction.SOUTH, blockState.getValue(FACING), shape);
         }
 
         return shape;
     }
-
-    public static VoxelShape rotateShape(Direction from, Direction to, VoxelShape shape) {
-        VoxelShape[] buffer = new VoxelShape[]{shape, Shapes.empty()};
-
-        int times = (to.ordinal() - from.get2DDataValue() + 4) % 4;
-        for (int i = 0; i < times; i++) {
-            buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> buffer[1] = Shapes.or(buffer[1], Shapes.create(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX)));
-            buffer[0] = buffer[1];
-            buffer[1] = Shapes.empty();
-        }
-
-        return buffer[0];
-    }
-
-
 }

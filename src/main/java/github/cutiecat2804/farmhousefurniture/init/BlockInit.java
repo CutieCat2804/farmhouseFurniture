@@ -83,4 +83,12 @@ public class BlockInit {
             () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final RegistryObject<Block> DARK_WOOD_BENCH = BLOCKS.register("dark_wood_bench",
             () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+
+    public static final RegistryObject<Block> PIANO = BLOCKS.register("piano",
+            () -> new PianoBlock(BlockBehaviour.Properties.of()
+                    .isViewBlocking((blockState, blockGetter, blockPos) -> false)
+                    .noOcclusion()
+                    .instrument(NoteBlockInstrument.BELL)
+                    .strength(5.0f, 17f)
+            ));
 }

@@ -7,7 +7,9 @@ import github.cutiecat2804.farmhousefurniture.datagen.blockstateprovider.TableBl
 import github.cutiecat2804.farmhousefurniture.enums.GrayChairColor;
 import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.enums.OakChairColor;
+import github.cutiecat2804.farmhousefurniture.enums.PianoPart;
 import github.cutiecat2804.farmhousefurniture.init.BlockInit;
+import github.cutiecat2804.farmhousefurniture.utils.DishBlockUtils;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
@@ -52,12 +54,42 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerBench(BlockInit.OAK_WOOD_BENCH.get(), "oak_wood_bench");
         registerBench(BlockInit.DARK_WOOD_BENCH.get(), "dark_wood_bench");
 
+        registerPiano(BlockInit.PIANO.get());
+
     }
 
     // Erstellt simple Models und BlockStates
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
+    }
+
+    private void registerPiano(Block block) {
+        simpleBlockItem(block, this.models().getExistingFile(resLoc.withPath("block/piano/piano")));
+
+        this.getVariantBuilder(block)
+                .forAllStates(state ->
+                        {
+                            String path = "block/piano/piano_" + PianoPart.TOP_LEFT.getSerializedName();
+
+                            if (state.getValue(PianoBlock.PART) == PianoPart.BOTTOM_LEFT) {
+                                path = "block/piano/piano_" + PianoPart.BOTTOM_LEFT.getSerializedName();
+                            }
+
+                            if (state.getValue(PianoBlock.PART) == PianoPart.TOP_RIGHT) {
+                                path = "block/piano/piano_" + PianoPart.TOP_RIGHT.getSerializedName();
+                            }
+
+                            if (state.getValue(PianoBlock.PART) == PianoPart.BOTTOM_RIGHT) {
+                                path = "block/piano/piano_" + PianoPart.BOTTOM_RIGHT.getSerializedName();
+                            }
+
+                            return ConfiguredModel.builder()
+                                    .modelFile(this.models().getExistingFile(resLoc.withPath(path)))
+                                    .rotationY(((int) state.getValue(DishBlockUtils.FACING).toYRot() + 180) % 360)
+                                    .build();
+                        }
+                );
     }
 
     private void registerBench(Block block, String modelName) {

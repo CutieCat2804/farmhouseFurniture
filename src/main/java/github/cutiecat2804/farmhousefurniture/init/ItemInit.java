@@ -1,6 +1,7 @@
 package github.cutiecat2804.farmhousefurniture.init;
 
 import github.cutiecat2804.farmhousefurniture.FarmhouseFurniture;
+import github.cutiecat2804.farmhousefurniture.item.PianoBlockItem;
 import github.cutiecat2804.farmhousefurniture.item.TwoBlockHighBlockItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -71,4 +72,7 @@ public class ItemInit {
             () -> new BlockItem(BlockInit.OAK_WOOD_BENCH.get(), new Item.Properties())));
     public static final RegistryObject<BlockItem> DARK_WOOD_BENCH = addToTab(ITEMS.register("dark_wood_bench",
             () -> new BlockItem(BlockInit.DARK_WOOD_BENCH.get(), new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> PIANO = addToTab(ITEMS.register("piano",
+            () -> new PianoBlockItem(BlockInit.PIANO.get(), new Item.Properties())));
 }

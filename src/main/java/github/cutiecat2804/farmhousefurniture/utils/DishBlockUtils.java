@@ -1,5 +1,6 @@
-package github.cutiecat2804.farmhousefurniture.block;
+package github.cutiecat2804.farmhousefurniture.utils;
 
+import github.cutiecat2804.farmhousefurniture.block.PlateBlock;
 import github.cutiecat2804.farmhousefurniture.enums.DishColor;
 import github.cutiecat2804.farmhousefurniture.init.ItemInit;
 import net.minecraft.core.BlockPos;

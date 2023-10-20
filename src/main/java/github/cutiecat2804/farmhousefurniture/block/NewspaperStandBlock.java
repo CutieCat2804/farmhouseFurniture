@@ -1,5 +1,6 @@
 package github.cutiecat2804.farmhousefurniture.block;
 
+import github.cutiecat2804.farmhousefurniture.utils.DishBlockUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
