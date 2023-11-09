@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " N ",
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:white_concrete"
+    },
+    "N": {
+      "item": "farmhousefurniture:newspaper"
+    }
+  },
+  "result": {
+    "item": "farmhousefurniture:piano",
+    "count": 1
+  }
+}
