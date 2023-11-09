@@ -75,4 +75,6 @@ public class ItemInit {
 
     public static final RegistryObject<BlockItem> PIANO = addToTab(ITEMS.register("piano",
             () -> new PianoBlockItem(BlockInit.PIANO.get(), new Item.Properties())));
+    public static final RegistryObject<BlockItem> PIANO_BENCH = addToTab(ITEMS.register("piano_bench",
+            () -> new BlockItem(BlockInit.PIANO_BENCH.get(), new Item.Properties())));
 }

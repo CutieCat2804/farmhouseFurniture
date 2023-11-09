@@ -91,4 +91,6 @@ public class BlockInit {
                     .instrument(NoteBlockInstrument.BELL)
                     .strength(5.0f, 17f)
             ));
+    public static final RegistryObject<Block> PIANO_BENCH = BLOCKS.register("piano_bench",
+            () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 }

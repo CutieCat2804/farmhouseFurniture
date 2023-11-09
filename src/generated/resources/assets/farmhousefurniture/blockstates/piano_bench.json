@@ -1,0 +1,60 @@
+{
+  "variants": {
+    "facing=east,left=false,right=false": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench",
+      "y": 90
+    },
+    "facing=east,left=false,right=true": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_left_connect",
+      "y": 90
+    },
+    "facing=east,left=true,right=false": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_right_connect",
+      "y": 90
+    },
+    "facing=east,left=true,right=true": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_two_connect",
+      "y": 90
+    },
+    "facing=north,left=false,right=false": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench"
+    },
+    "facing=north,left=false,right=true": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_left_connect"
+    },
+    "facing=north,left=true,right=false": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_right_connect"
+    },
+    "facing=north,left=true,right=true": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_two_connect"
+    },
+    "facing=south,left=false,right=false": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench"
+    },
+    "facing=south,left=false,right=true": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_right_connect"
+    },
+    "facing=south,left=true,right=false": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_left_connect"
+    },
+    "facing=south,left=true,right=true": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_two_connect"
+    },
+    "facing=west,left=false,right=false": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench",
+      "y": 90
+    },
+    "facing=west,left=false,right=true": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_right_connect",
+      "y": 90
+    },
+    "facing=west,left=true,right=false": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_left_connect",
+      "y": 90
+    },
+    "facing=west,left=true,right=true": {
+      "model": "farmhousefurniture:block/piano/piano_bench/piano_bench_two_connect",
+      "y": 90
+    }
+  }
+}

@@ -49,39 +49,38 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerChair(BlockInit.OAK_WOOD_CHAIR.get(), "oak_wood_chair", true);
         registerChair(BlockInit.DARK_WOOD_CHAIR.get(), "dark_wood_chair", false);
 
-        registerBench(BlockInit.GRAY_WOOD_BENCH.get(), "gray_wood_bench");
-        registerBench(BlockInit.BLUE_WOOD_BENCH.get(), "blue_wood_bench");
-        registerBench(BlockInit.OAK_WOOD_BENCH.get(), "oak_wood_bench");
-        registerBench(BlockInit.DARK_WOOD_BENCH.get(), "dark_wood_bench");
+        registerBench(BlockInit.GRAY_WOOD_BENCH.get(), "bench/gray_wood_bench/gray_wood_bench");
+        registerBench(BlockInit.BLUE_WOOD_BENCH.get(), "bench/blue_wood_bench/blue_wood_bench");
+        registerBench(BlockInit.OAK_WOOD_BENCH.get(), "bench/oak_wood_bench/oak_wood_bench");
+        registerBench(BlockInit.DARK_WOOD_BENCH.get(), "bench/dark_wood_bench/dark_wood_bench");
 
         registerPiano(BlockInit.PIANO.get());
-
+        registerBench(BlockInit.PIANO_BENCH.get(), "piano/piano_bench/piano_bench");
     }
 
     // Erstellt simple Models und BlockStates
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
-
     }
 
     private void registerPiano(Block block) {
-        simpleBlockItem(block, this.models().getExistingFile(resLoc.withPath("block/piano/piano")));
+        simpleBlockItem(block, this.models().getExistingFile(resLoc.withPath("block/piano/piano/piano")));
 
         this.getVariantBuilder(block)
                 .forAllStates(state ->
                         {
-                            String path = "block/piano/piano_" + PianoPart.TOP_LEFT.getSerializedName();
+                            String path = "block/piano/piano/piano_" + PianoPart.TOP_LEFT.getSerializedName();
 
                             if (state.getValue(PianoBlock.PART) == PianoPart.BOTTOM_LEFT) {
-                                path = "block/piano/piano_" + PianoPart.BOTTOM_LEFT.getSerializedName();
+                                path = "block/piano/piano/piano_" + PianoPart.BOTTOM_LEFT.getSerializedName();
                             }
 
                             if (state.getValue(PianoBlock.PART) == PianoPart.TOP_RIGHT) {
-                                path = "block/piano/piano_" + PianoPart.TOP_RIGHT.getSerializedName();
+                                path = "block/piano/piano/piano_" + PianoPart.TOP_RIGHT.getSerializedName();
                             }
 
                             if (state.getValue(PianoBlock.PART) == PianoPart.BOTTOM_RIGHT) {
-                                path = "block/piano/piano_" + PianoPart.BOTTOM_RIGHT.getSerializedName();
+                                path = "block/piano/piano/piano_" + PianoPart.BOTTOM_RIGHT.getSerializedName();
                             }
 
                             return ConfiguredModel.builder()
@@ -92,26 +91,26 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 );
     }
 
-    private void registerBench(Block block, String modelName) {
-        simpleBlockItem(block, this.models().getExistingFile(resLoc.withPath("block/bench/" + modelName + "/" + modelName)));
+    private void registerBench(Block block, String modelPath) {
+        simpleBlockItem(block, this.models().getExistingFile(resLoc.withPath("block/" + modelPath)));
 
         this.getVariantBuilder(block)
                 .forAllStates(state ->
                         {
-                            String path = "block/bench/" + modelName + "/" + modelName;
+                            String path = "block/" + modelPath;
 
                             if ((state.getValue(BenchBlock.LEFT) && state.getValue(BenchBlock.FACING).toYRot() < 180) ||
                                     (state.getValue(BenchBlock.RIGHT) && state.getValue(BenchBlock.FACING).toYRot() >= 180)) {
-                                path = "block/bench/" + modelName + "/" + modelName + "_left_connect";
+                                path = "block/" + modelPath + "_left_connect";
                             }
 
                             if ((state.getValue(BenchBlock.RIGHT) && state.getValue(BenchBlock.FACING).toYRot() < 180) ||
                                     (state.getValue(BenchBlock.LEFT) && state.getValue(BenchBlock.FACING).toYRot() >= 180)) {
-                                path = "block/bench/" + modelName + "/" + modelName + "_right_connect";
+                                path = "block/" + modelPath + "_right_connect";
                             }
 
                             if (state.getValue(BenchBlock.RIGHT) && state.getValue(BenchBlock.LEFT)) {
-                                path = "block/bench/" + modelName + "/" + modelName + "_two_connect";
+                                path = "block/" + modelPath + "_two_connect";
                             }
 
 
